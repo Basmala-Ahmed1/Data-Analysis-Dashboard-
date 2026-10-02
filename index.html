@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Data Analyst & Automation Mastery Dashboard</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-base: #060913;
+            --bg-surface: #0e1326;
+            --bg-card: rgba(18, 24, 48, 0.75);
+            --bg-card-hover: rgba(28, 38, 74, 0.85);
+            --border-glow: rgba(0, 210, 255, 0.25);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d4edd;
+            --neon-pink: #f72585;
+            --neon-cyan: #4cc9f0;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            
+            --glass-blur: blur(16px);
+            --card-radius: 16px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 210, 255, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Responsive Tablet-First Layout */
+        .app-container {
+            display: flex;
+            flex: 1;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            background: rgba(10, 14, 29, 0.9);
+            backdrop-filter: var(--glass-blur);
+            border-right: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .brand-header {
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .brand-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to right, #fff, var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(0, 210, 255, 0.15), rgba(157, 78, 221, 0.05));
+            color: var(--neon-blue);
+            border-left: 3px solid var(--neon-blue);
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.15);
+        }
+
+        .nav-item i {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content Area */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            height: 70px;
+            padding: 0 28px;
+            background: rgba(10, 14, 29, 0.6);
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-title-container h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .quick-stats-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-stat-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-stat-pill span {
+            color: var(--neon-cyan);
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .content-scrollable {
+            flex: 1;
+            padding: 28px;
+            overflow-y: auto;
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards & Grid Utilities */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--card-radius);
+            padding: 22px;
+            position: relative;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title i {
+            color: var(--neon-blue);
+        }
+
+        /* Identity Card Styling */
+        .identity-card {
+            background: linear-gradient(135deg, rgba(14, 19, 38, 0.9), rgba(28, 18, 50, 0.8));
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            box-shadow: 0 0 25px rgba(157, 78, 221, 0.15);
+        }
+
+        .identity-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        .editable-field {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .editable-field:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.3);
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Progress Components */
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 12px 0;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 6px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px var(--neon-blue);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .stat-sub {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* Buttons & Controls */
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-danger {
+            background: rgba(247, 37, 133, 0.2);
+            color: var(--neon-pink);
+            border: 1px solid rgba(247, 37, 133, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(247, 37, 133, 0.3);
+        }
+
+        /* Dynamic Day Plan Style */
+        .day-accordion {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--card-radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .day-accordion-header {
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .day-accordion-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .day-accordion-body {
+            padding: 24px;
+            border-top: 1px solid var(--border-subtle);
+            display: none;
+        }
+
+        .day-accordion.active .day-accordion-body {
+            display: block;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 14px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: var(--transition);
+        }
+
+        .task-item:hover {
+            border-color: rgba(0, 210, 255, 0.3);
+        }
+
+        .task-item.completed {
+            opacity: 0.55;
+            background: rgba(16, 185, 129, 0.05);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid var(--text-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 2px;
+            transition: var(--transition);
+        }
+
+        .task-item.completed .task-checkbox {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #000;
+        }
+
+        /* Tables */
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .custom-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .custom-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Focus Overlay */
+        .focus-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(6, 9, 19, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .focus-overlay.active {
+            display: flex;
+        }
+
+        .timer-display {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--neon-blue);
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+            margin: 20px 0;
+        }
+
+        /* Form Controls */
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--text-main);
+            outline: none;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 210, 255, 0.4);
+        }
+
+        /* Media Query for Tablet Optimization */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 70px;
+            }
+            .sidebar .brand-title, .sidebar .nav-item span {
+                display: none;
+            }
+            .grid-3, .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <div class="brand-header">
+                <div class="brand-logo"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="brand-title">ANALYTICS SPRINT</div>
+            </div>
+            <nav class="nav-menu">
+                <a class="nav-item active" onclick="switchTab('home')">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('plan')">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>30-Day Plan</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('skills')">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>Skills</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('projects')">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Projects</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('resources')">
+                    <i class="fa-solid fa-vault"></i>
+                    <span>Resources Vault</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('notes')">
+                    <i class="fa-solid fa-note-sticky"></i>
+                    <span>Notes</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('crm')">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Client CRM</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('jobs')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Job Applications</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('reviews')">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Weekly Review</span>
+                </a>
+                <a class="nav-item" onclick="switchTab('settings')">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Top Navbar -->
+            <header class="top-bar">
+                <div class="page-title-container">
+                    <h1 id="current-page-title">Career Dashboard</h1>
+                </div>
+                <div class="quick-stats-top">
+                    <button class="btn btn-primary" onclick="openFocusMode()"><i class="fa-solid fa-stopwatch"></i> Focus Mode</button>
+                    <div class="top-stat-pill">
+                        <i class="fa-solid fa-fire" style="color: var(--accent-amber);"></i>
+                        <span id="top-streak">0</span> Days
+                    </div>
+                    <div class="top-stat-pill">
+                        <i class="fa-solid fa-bolt" style="color: var(--neon-blue);"></i>
+                        <span id="top-xp">0</span> XP
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Content -->
+            <main class="content-scrollable">
+
+                <!-- 1. HOME TAB -->
+                <section id="view-home" class="page-view active">
+                    <div class="grid-3" style="margin-bottom: 24px;">
+                        
+                        <!-- Identity Card -->
+                        <div class="glass-card identity-card grid-2" style="grid-column: span 2;">
+                            <div style="display: flex; gap: 16px; align-items: center;">
+                                <div class="user-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+                                <div>
+                                    <h2 style="font-size: 20px; font-weight: 700;" id="id-display-name">Data Analyst Candidate</h2>
+                                    <div class="level-badge" id="id-level-badge">Level 1 — Beginner</div>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 12px;">
+                                <div>
+                                    <label style="color: var(--text-muted);">Name</label>
+                                    <input type="text" id="id-input-name" class="editable-field" value="User Candidate" onchange="updateIdentity()">
+                                </div>
+                                <div>
+                                    <label style="color: var(--text-muted);">Age</label>
+                                    <input type="number" id="id-input-age" class="editable-field" value="24" onchange="updateIdentity()">
+                                </div>
+                                <div>
+                                    <label style="color: var(--text-muted);">IQ Assessment</label>
+                                    <input type="text" id="id-input-iq" class="editable-field" value="125 (High Analytical)" onchange="updateIdentity()">
+                                </div>
+                                <div>
+                                    <label style="color: var(--text-muted);">Learning Ability</label>
+                                    <input type="text" id="id-input-ability" class="editable-field" value="Fast Learner / Visual" onchange="updateIdentity()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Motivational Quote Widget -->
+                        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div class="card-title"><i class="fa-solid fa-quote-left"></i> Sprint Motivation</div>
+                            <p id="quote-text" style="font-style: italic; font-size: 14px; color: var(--text-muted); margin: 12px 0;">
+                                "Discipline is choosing between what you want now and what you want most."
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <button class="btn btn-secondary" onclick="prevQuote()"><i class="fa-solid fa-chevron-left"></i></button>
+                                <button class="btn btn-secondary" onclick="nextQuote()"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journey Overall Stats -->
+                    <div class="glass-card" style="margin-bottom: 24px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-flag-checkered"></i> 30-Day Sprint Progress</div>
+                            <div style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--neon-cyan);" id="day-counter-text">DAY 1 / 30</div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="overall-progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <div class="grid-4" style="margin-top: 20px;">
+                            <div>
+                                <div class="stat-value" id="stat-total-xp">0</div>
+                                <div class="stat-sub">TOTAL XP EARNED</div>
+                            </div>
+                            <div>
+                                <div class="stat-value" id="stat-completion-pct">0%</div>
+                                <div class="stat-sub">SPRINT COMPLETION</div>
+                            </div>
+                            <div>
+                                <div class="stat-value" id="stat-hours-logged">0</div>
+                                <div class="stat-sub">HOURS LOGGED</div>
+                            </div>
+                            <div>
+                                <div class="stat-value" id="stat-projects-done">0</div>
+                                <div class="stat-sub">PROJECTS COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "What I Can Do Now" Auto-Updating Module -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Unlocked Operational Capabilities</div>
+                        </div>
+                        <div id="capabilities-list" style="display: flex; flex-direction: column; gap: 8px;">
+                            <div style="color: var(--text-dim); font-size: 13px;">Complete your daily checklist items to unlock practical job capabilities.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. 30-DAY PLAN TAB -->
+                <section id="view-plan" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-bullseye"></i> 30-Day Data Analyst & Automation Sprint Plan</div>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="task-search" placeholder="Search tasks..." onkeyup="filterTasks()" style="width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day Accordions Container -->
+                    <div id="days-container"></div>
+                </section>
+
+                <!-- 3. SKILLS TRACKER TAB -->
+                <section id="view-skills" class="page-view">
+                    <div class="grid-3" id="skills-grid"></div>
+                </section>
+
+                <!-- 4. PROJECTS TRACKER TAB -->
+                <section id="view-projects" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-diagram-project"></i> Portfolio Projects Tracker</div>
+                        </div>
+                    </div>
+                    <div class="grid-2" id="projects-grid"></div>
+                </section>
+
+                <!-- 5. RESOURCES VAULT (Full CRUD) -->
+                <section id="view-resources" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-vault"></i> Learning Resources Vault</div>
+                            <button class="btn btn-primary" onclick="openAddResourceModal()"><i class="fa-solid fa-plus"></i> Add Resource</button>
+                        </div>
+                    </div>
+                    <div class="grid-3" id="resources-grid"></div>
+                </section>
+
+                <!-- 6. NOTES TAB (Full CRUD) -->
+                <section id="view-notes" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-note-sticky"></i> Knowledge Base & Daily Notes</div>
+                            <button class="btn btn-primary" onclick="openAddNoteModal()"><i class="fa-solid fa-plus"></i> Create Note</button>
+                        </div>
+                        <input type="text" id="note-search-input" placeholder="Search notes by keyword..." onkeyup="renderNotes()" style="margin-top: 10px;">
+                    </div>
+                    <div class="grid-2" id="notes-grid"></div>
+                </section>
+
+                <!-- 7. CLIENT CRM TAB (Full CRUD) -->
+                <section id="view-crm" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-handshake"></i> Client Prospect Pipeline ($100–$500 Goal)</div>
+                            <button class="btn btn-primary" onclick="openAddClientModal()"><i class="fa-solid fa-plus"></i> Add Prospect</button>
+                        </div>
+                        <div class="grid-4" style="margin-top: 10px;">
+                            <div><div class="stat-value" id="crm-stat-prospects">0</div><div class="stat-sub">PROSPECTS</div></div>
+                            <div><div class="stat-value" id="crm-stat-contacted">0</div><div class="stat-sub">CONTACTED</div></div>
+                            <div><div class="stat-value" id="crm-stat-won">0</div><div class="stat-sub">WON</div></div>
+                            <div><div class="stat-value" id="crm-stat-pipeline">$0</div><div class="stat-sub">PIPELINE VALUE</div></div>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Industry</th>
+                                    <th>Service Offered</th>
+                                    <th>Value</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="client-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 8. JOB APPLICATIONS TAB -->
+                <section id="view-jobs" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-briefcase"></i> Job Application Tracker</div>
+                            <button class="btn btn-primary" onclick="openAddJobModal()"><i class="fa-solid fa-plus"></i> Log Application</button>
+                        </div>
+                        <div class="grid-4" style="margin-top: 10px;">
+                            <div><div class="stat-value" id="job-stat-applied">0</div><div class="stat-sub">APPLIED</div></div>
+                            <div><div class="stat-value" id="job-stat-interviews">0</div><div class="stat-sub">INTERVIEWS</div></div>
+                            <div><div class="stat-value" id="job-stat-tests">0</div><div class="stat-sub">TESTS</div></div>
+                            <div><div class="stat-value" id="job-stat-offers">0</div><div class="stat-sub">OFFERS</div></div>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Role</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Applied Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobs-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 9. WEEKLY REVIEW & REPORT -->
+                <section id="view-reviews" class="page-view">
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-award"></i> Weekly Reflection & Sprint Final Report</div>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                            <button class="btn btn-secondary" onclick="generateCareerReport()"><i class="fa-solid fa-file-invoice"></i> Generate Sprint Report</button>
+                        </div>
+                        <div id="career-report-output" style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: pre-wrap; color: var(--neon-cyan);">
+Click "Generate Sprint Report" to compile your full 30-day performance and career readiness overview.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. SETTINGS TAB -->
+                <section id="view-settings" class="page-view">
+                    <div class="glass-card" style="max-width: 600px;">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fa-solid fa-gear"></i> System Data & Settings</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <button class="btn btn-secondary" onclick="exportData()"><i class="fa-solid fa-download"></i> Export Local Storage (JSON)</button>
+                            <button class="btn btn-secondary" onclick="document.getElementById('import-file-input').click()"><i class="fa-solid fa-upload"></i> Import Data File</button>
+                            <input type="file" id="import-file-input" style="display: none;" onchange="importData(event)">
+                            <hr style="border-color: var(--border-subtle);">
+                            <button class="btn btn-danger" onclick="resetAllData()"><i class="fa-solid fa-rotate-left"></i> Reset All Progress to 0</button>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Focus Mode Overlay -->
+    <div class="focus-overlay" id="focus-modal">
+        <h2 style="color: #fff; font-size: 24px;">Sprint Focus Mode</h2>
+        <div class="timer-display" id="focus-timer">25:00</div>
+        <div style="display: flex; gap: 12px;">
+            <button class="btn btn-primary" onclick="toggleTimer()" id="timer-start-btn">Start</button>
+            <button class="btn btn-secondary" onclick="setTimer(25)">25m</button>
+            <button class="btn btn-secondary" onclick="setTimer(50)">50m</button>
+            <button class="btn btn-danger" onclick="closeFocusMode()">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        /* Global Application State & Storage Blueprint */
+        let state = {
+            identity: { name: "User Candidate", age: 24, iq: "125", ability: "Fast Learner" },
+            stats: { totalXP: 0, streak: 0, hoursLogged: 0 },
+            tasksCompleted: {},
+            dailyToDos: {},
+            dailyNotes: {},
+            resources: [
+                { id: 1, title: "Microsoft Excel Training", category: "Excel", url: "https://support.microsoft.com/excel" },
+                { id: 2, title: "SQLBolt Interactive SQL", category: "SQL", url: "https://sqlbolt.com/" },
+                { id: 3, title: "Kaggle Python Course", category: "Python", url: "https://www.kaggle.com/learn/python" },
+                { id: 4, title: "Microsoft Power BI Path", category: "Power BI", url: "https://learn.microsoft.com/en-us/training/paths/prepare-visualize-data-power-bi/" },
+                { id: 5, title: "n8n Educational Workflows", category: "Automation", url: "https://n8n.io/education/" },
+                { id: 6, title: "GitHub Skills", category: "Git", url: "https://skills.github.com/" }
+            ],
+            notes: [],
+            clients: [],
+            jobs: []
+        };
+
+        const quotes = [
+            "Discipline is choosing between what you want now and what you want most.",
+            "Small progress is still progress.",
+            "Build something real.",
+            "Learn it. Use it. Ship it.",
+            "Your portfolio speaks when you're not in the room.",
+            "Consistency compounds."
+        ];
+        let currentQuoteIndex = 0;
+
+        /* Curriculum Definition */
+        const sprintPlan = [
+            {
+                day: 1, week: 1, title: "Excel Foundations", time: "5–6 hours",
+                deliverable: "A clean 100-row sales spreadsheet with working calculations and 3 written business observations.",
+                resource: "Microsoft Excel training / Google Sheets",
+                tasks: [
+                    { id: "d1_1", text: "Open Excel Online or Google Sheets and create a workbook named Sales_Analysis_Project.", xp: 20 },
+                    { id: "d1_2", text: "Create a dataset with at least 100 sales records. Include Date, Order ID, Product, Category, Quantity, Unit Price, Cost, Region, and Customer ID.", xp: 40 },
+                    { id: "d1_3", text: "Format the data as a table and make the headers clear.", xp: 20 },
+                    { id: "d1_4", text: "Calculate Revenue = Quantity × Unit Price.", xp: 20 },
+                    { id: "d1_5", text: "Calculate Profit = Revenue − Cost × Quantity.", xp: 20 },
+                    { id: "d1_6", text: "Use SUM, AVERAGE, MIN, MAX, and COUNTA to summarize the data.", xp: 30 },
+                    { id: "d1_7", text: "Calculate total revenue, total profit, average order value, and number of orders.", xp: 30 },
+                    { id: "d1_8", text: "Format currency, dates, and percentages correctly.", xp: 15 },
+                    { id: "d1_9", text: "Write 3 observations about the business using your results.", xp: 25 }
+                ]
+            },
+            {
+                day: 2, week: 1, title: "Excel Analytical Formulas", time: "5–6 hours",
+                deliverable: "An Excel business analysis sheet.",
+                resource: "Excel Formulas Guide",
+                tasks: [
+                    { id: "d2_1", text: "Review Day 1's dataset.", xp: 15 },
+                    { id: "d2_2", text: "Learn IF, SUMIF, SUMIFS, COUNTIF, COUNTIFS.", xp: 35 },
+                    { id: "d2_3", text: "Learn XLOOKUP or use INDEX/MATCH if unavailable.", xp: 35 },
+                    { id: "d2_4", text: "Calculate revenue by region.", xp: 25 },
+                    { id: "d2_5", text: "Identify the best-selling product.", xp: 20 },
+                    { id: "d2_6", text: "Count orders by category.", xp: 20 },
+                    { id: "d2_7", text: "Calculate profit margin for each product.", xp: 25 },
+                    { id: "d2_8", text: "Create a summary sheet with at least 6 business metrics.", xp: 40 },
+                    { id: "d2_9", text: "Write 5 questions your spreadsheet can answer.", xp: 25 }
+                ]
+            },
+            {
+                day: 3, week: 1, title: "PivotTables + Dashboard", time: "5–6 hours",
+                deliverable: "Your first sales dashboard.",
+                resource: "PivotTable Fundamentals",
+                tasks: [
+                    { id: "d3_1", text: "Learn PivotTables.", xp: 40 },
+                    { id: "d3_2", text: "Summarize revenue by month.", xp: 25 },
+                    { id: "d3_3", text: "Summarize profit by category.", xp: 25 },
+                    { id: "d3_4", text: "Compare sales by region.", xp: 25 },
+                    { id: "d3_5", text: "Create 3 charts.", xp: 30 },
+                    { id: "d3_6", text: "Add conditional formatting.", xp: 20 },
+                    { id: "d3_7", text: "Create a dashboard sheet with KPI cards.", xp: 50 },
+                    { id: "d3_8", text: "Add a short explanation of the findings.", xp: 35 }
+                ]
+            },
+            {
+                day: 4, week: 1, title: "Power Query + Data Cleaning", time: "5–6 hours",
+                deliverable: "Before-and-after data cleaning project.",
+                resource: "Power Query Documentation",
+                tasks: [
+                    { id: "d4_1", text: "Learn what ETL means: Extract, Transform, Load.", xp: 25 },
+                    { id: "d4_2", text: "Import a messy CSV dataset.", xp: 25 },
+                    { id: "d4_3", text: "Remove duplicates.", xp: 20 },
+                    { id: "d4_4", text: "Fix inconsistent category names.", xp: 25 },
+                    { id: "d4_5", text: "Handle missing values.", xp: 25 },
+                    { id: "d4_6", text: "Correct date and number formats.", xp: 20 },
+                    { id: "d4_7", text: "Split and merge columns.", xp: 25 },
+                    { id: "d4_8", text: "Load the cleaned result.", xp: 30 },
+                    { id: "d4_9", text: "Write down the problems you fixed.", xp: 30 }
+                ]
+            },
+            {
+                day: 5, week: 1, title: "SQL Fundamentals", time: "5–6 hours",
+                deliverable: "A document containing 10 working SQL queries.",
+                resource: "SQLBolt Interactive Tutorials",
+                tasks: [
+                    { id: "d5_1", text: "Open SQLBolt and learn SELECT, FROM, WHERE.", xp: 25 },
+                    { id: "d5_2", text: "Learn ORDER BY and LIMIT.", xp: 20 },
+                    { id: "d5_3", text: "Practice comparison operators.", xp: 20 },
+                    { id: "d5_4", text: "Learn COUNT, SUM, AVG, MIN, MAX.", xp: 30 },
+                    { id: "d5_5", text: "Practice GROUP BY.", xp: 35 },
+                    { id: "d5_6", text: "Complete the first 6 SQLBolt lessons.", xp: 50 },
+                    { id: "d5_7", text: "Write 10 queries using a sample sales database.", xp: 70 }
+                ]
+            },
+            {
+                day: 6, week: 1, title: "SQL Joins + Intermediate Queries", time: "5–6 hours",
+                deliverable: "SQL query collection with explanations.",
+                resource: "SQL Joins Visual Guide",
+                tasks: [
+                    { id: "d6_1", text: "Learn INNER JOIN and LEFT JOIN.", xp: 40 },
+                    { id: "d6_2", text: "Learn CASE WHEN.", xp: 30 },
+                    { id: "d6_3", text: "Understand NULL values.", xp: 20 },
+                    { id: "d6_4", text: "Learn subqueries.", xp: 40 },
+                    { id: "d6_5", text: "Practice joining customers, orders, and products.", xp: 45 },
+                    { id: "d6_6", text: "Calculate revenue by customer.", xp: 30 },
+                    { id: "d6_7", text: "Identify customers with no orders.", xp: 30 },
+                    { id: "d6_8", text: "Solve 10 practice questions.", xp: 60 }
+                ]
+            },
+            {
+                day: 7, week: 1, title: "SQL Portfolio Project", time: "5–6 hours",
+                deliverable: "Project 1 — E-commerce SQL Analysis.",
+                resource: "Kaggle E-Commerce Datasets",
+                tasks: [
+                    { id: "d7_1", text: "Choose a free e-commerce dataset from Kaggle Datasets.", xp: 30 },
+                    { id: "d7_2", text: "Inspect its tables and columns.", xp: 20 },
+                    { id: "d7_3", text: "Write 15 business questions.", xp: 40 },
+                    { id: "d7_4", text: "Answer them using SQL.", xp: 80 },
+                    { id: "d7_5", text: "Calculate revenue, average order value, and top products.", xp: 40 },
+                    { id: "d7_6", text: "Analyze customer activity.", xp: 40 },
+                    { id: "d7_7", text: "Write a one-page findings report.", xp: 50 },
+                    { id: "d7_8", text: "Create a GitHub account or repository.", xp: 30 },
+                    { id: "d7_9", text: "Upload your SQL file and project README.", xp: 70 }
+                ]
+            }
+        ];
+
+        /* Dynamic Render & Core Functions */
+        function initApp() {
+            loadLocalStorage();
+            renderIdentity();
+            renderStats();
+            renderPlan();
+            renderSkills();
+            renderProjects();
+            renderResources();
+            renderNotes();
+            renderCRM();
+            renderJobs();
+        }
+
+        function loadLocalStorage() {
+            const saved = localStorage.getItem("analytics_sprint_state");
+            if (saved) {
+                try {
+                    state = Object.assign(state, JSON.parse(saved));
+                } catch(e) { console.error("Could not parse saved storage", e); }
+            }
+        }
+
+        function saveLocalStorage() {
+            localStorage.setItem("analytics_sprint_state", JSON.stringify(state));
+            renderStats();
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById('view-' + tabId).classList.add('active');
+            
+            const titleMap = {
+                home: "Career Dashboard", plan: "30-Day Sprint Curriculum", skills: "Skills Matrix",
+                projects: "Portfolio Tracker", resources: "Resources Vault", notes: "Notes & Knowledge Base",
+                crm: "Client CRM Pipeline", jobs: "Job Application Tracker", reviews: "Weekly Performance Review",
+                settings: "System Data & Storage Settings"
+            };
+            document.getElementById('current-page-title').innerText = titleMap[tabId] || "Dashboard";
+        }
+
+        /* Identity & Leveling System */
+        function updateIdentity() {
+            state.identity.name = document.getElementById("id-input-name").value;
+            state.identity.age = document.getElementById("id-input-age").value;
+            state.identity.iq = document.getElementById("id-input-iq").value;
+            state.identity.ability = document.getElementById("id-input-ability").value;
+            document.getElementById("id-display-name").innerText = state.identity.name;
+            saveLocalStorage();
+        }
+
+        function renderIdentity() {
+            document.getElementById("id-input-name").value = state.identity.name;
+            document.getElementById("id-input-age").value = state.identity.age;
+            document.getElementById("id-input-iq").value = state.identity.iq;
+            document.getElementById("id-input-ability").value = state.identity.ability;
+            document.getElementById("id-display-name").innerText = state.identity.name;
+        }
+
+        function calculateLevel(xp) {
+            if (xp >= 3000) return "Level 8 — Client Ready";
+            if (xp >= 2400) return "Level 7 — Analytics Specialist";
+            if (xp >= 1800) return "Level 6 — Junior Data Analyst";
+            if (xp >= 1300) return "Level 5 — Automation Builder";
+            if (xp >= 900)  return "Level 4 — BI Builder";
+            if (xp >= 500)  return "Level 3 — Analyst";
+            if (xp >= 200)  return "Level 2 — Explorer";
+            return "Level 1 — Beginner";
+        }
+
+        function renderStats() {
+            let totalXPEarned = 0;
+            let tasksCompletedCount = 0;
+            let totalTasksCount = 0;
+
+            sprintPlan.forEach(day => {
+                day.tasks.forEach(t => {
+                    totalTasksCount++;
+                    if (state.tasksCompleted[t.id]) {
+                        totalXPEarned += t.xp;
+                        tasksCompletedCount++;
+                    }
+                });
+            });
+
+            state.stats.totalXP = totalXPEarned;
+            const completionPct = totalTasksCount > 0 ? Math.round((tasksCompletedCount / totalTasksCount) * 100) : 0;
+
+            document.getElementById("top-xp").innerText = totalXPEarned;
+            document.getElementById("top-streak").innerText = state.stats.streak;
+            document.getElementById("stat-total-xp").innerText = totalXPEarned;
+            document.getElementById("stat-completion-pct").innerText = completionPct + "%";
+            document.getElementById("overall-progress-bar").style.width = completionPct + "%";
+            document.getElementById("id-level-badge").innerText = calculateLevel(totalXPEarned);
+
+            // Capabilities update
+            const capContainer = document.getElementById("capabilities-list");
+            capContainer.innerHTML = "";
+            let caps = [];
+            if (totalXPEarned >= 200) caps.push("✓ Excel Sales & Business Dataset Analysis");
+            if (totalXPEarned >= 500) caps.push("✓ Relational Database Querying & SQL Joins");
+            if (totalXPEarned >= 900) caps.push("✓ Python Data Cleaning with pandas & Data Wrangling");
+            if (totalXPEarned >= 1300) caps.push("✓ Interactive Power BI Dashboarding & Data Modeling");
+            if (totalXPEarned >= 1800) caps.push("✓ End-to-End n8n Automated Sales Alerting Systems");
+
+            if (caps.length === 0) {
+                capContainer.innerHTML = `<div style="color: var(--text-dim); font-size: 13px;">Complete checklist tasks to unlock client-ready capabilities.</div>`;
+            } else {
+                caps.forEach(c => {
+                    const el = document.createElement("div");
+                    el.style.color = "var(--accent-green)";
+                    el.style.fontSize = "13px";
+                    el.innerText = c;
+                    capContainer.appendChild(el);
+                });
+            }
+        }
+
+        /* 30-Day Plan Accordion Renderer */
+        function renderPlan() {
+            const container = document.getElementById("days-container");
+            container.innerHTML = "";
+
+            sprintPlan.forEach(dayObj => {
+                const dayEl = document.createElement("div");
+                dayEl.className = "day-accordion";
+                
+                let dayCompletedTasks = 0;
+                day.tasks?.forEach(t => { if (state.tasksCompleted[t.id]) dayCompletedTasks++; });
+
+                dayEl.innerHTML = `
+                    <div class="day-accordion-header" onclick="this.parentElement.classList.toggle('active')">
+                        <div>
+                            <span style="font-weight:700; color:var(--neon-blue); margin-right:8px;">DAY ${dayObj.day}</span>
+                            <span style="font-weight:600;">${dayObj.title}</span>
+                            <span style="font-size:12px; color:var(--text-muted); margin-left:12px;">Est: ${dayObj.time}</span>
+                        </div>
+                        <div style="font-size:12px; font-family:'JetBrains Mono'; color:var(--text-muted);">
+                            ${dayCompletedTasks}/${dayObj.tasks.length} Completed <i class="fa-solid fa-chevron-down" style="margin-left:8px;"></i>
+                        </div>
+                    </div>
+                    <div class="day-accordion-body">
+                        <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;"><strong>Deliverable:</strong> ${dayObj.deliverable}</p>
+                        <div class="task-list">
+                            ${dayObj.tasks.map(t => `
+                                <div class="task-item ${state.tasksCompleted[t.id] ? 'completed' : ''}" onclick="toggleTask('${t.id}')">
+                                    <div class="task-checkbox"><i class="fa-solid fa-check" style="font-size:11px;"></i></div>
+                                    <div style="flex:1;">
+                                        <div class="task-text" style="font-size:13px; color:var(--text-main);">${t.text}</div>
+                                    </div>
+                                    <div style="font-size:11px; font-weight:700; color:var(--neon-cyan); font-family:'JetBrains Mono';">+${t.xp} XP</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <!-- Daily To-Do Section -->
+                        <div style="margin-top:20px; border-top:1px solid var(--border-subtle); padding-top:16px;">
+                            <h4 style="font-size:13px; font-weight:600; color:var(--text-muted); margin-bottom:8px;">Daily Quick Action Items</h4>
+                            <div style="display:flex; gap:8px; margin-bottom:10px;">
+                                <input type="text" id="todo-input-${dayObj.day}" placeholder="Add personal daily task...">
+                                <button class="btn btn-primary" onclick="addDailyToDo(${dayObj.day})">Add</button>
+                            </div>
+                            <div id="todo-list-${dayObj.day}"></div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(dayEl);
+                renderDailyToDos(dayObj.day);
+            });
+        }
+
+        function toggleTask(taskId) {
+            if (state.tasksCompleted[taskId]) {
+                delete state.tasksCompleted[taskId];
+            } else {
+                state.tasksCompleted[taskId] = true;
+            }
+            saveLocalStorage();
+            renderPlan();
+            renderSkills();
+        }
+
+        /* Daily To-Dos (CRUD) */
+        function addDailyToDo(day) {
+            const input = document.getElementById(`todo-input-${day}`);
+            if (!input.value.trim()) return;
+            if (!state.dailyToDos[day]) state.dailyToDos[day] = [];
+            state.dailyToDos[day].push({ id: Date.now(), text: input.value.trim(), done: false });
+            input.value = "";
+            saveLocalStorage();
+            renderDailyToDos(day);
+        }
+
+        function renderDailyToDos(day) {
+            const container = document.getElementById(`todo-list-${day}`);
+            if (!container) return;
+            container.innerHTML = "";
+            const items = state.dailyToDos[day] || [];
+            items.forEach((item, index) => {
+                const el = document.createElement("div");
+                el.style.display = "flex";
+                el.style.alignItems = "center";
+                el.style.justifySpaceBetween = "space-between";
+                el.style.fontSize = "12px";
+                el.style.marginBottom = "4px";
+                el.innerHTML = `
+                    <span style="${item.done ? 'text-decoration:line-through; opacity:0.5;' : ''}" onclick="toggleDailyToDo(${day}, ${index})">${item.text}</span>
+                    <i class="fa-solid fa-trash" style="color:var(--neon-pink); cursor:pointer; margin-left:10px;" onclick="deleteDailyToDo(${day}, ${index})"></i>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function toggleDailyToDo(day, index) {
+            state.dailyToDos[day][index].done = !state.dailyToDos[day][index].done;
+            saveLocalStorage();
+            renderDailyToDos(day);
+        }
+
+        function deleteDailyToDo(day, index) {
+            state.dailyToDos[day].splice(index, 1);
+            saveLocalStorage();
+            renderDailyToDos(day);
+        }
+
+        /* Skills Tracker Renderer */
+        function renderSkills() {
+            const grid = document.getElementById("skills-grid");
+            grid.innerHTML = "";
+            const skillList = [
+                { name: "Excel", icon: "fa-file-excel" },
+                { name: "SQL", icon: "fa-database" },
+                { name: "Python", icon: "fa-brands fa-python" },
+                { name: "Power BI", icon: "fa-chart-column" },
+                { name: "Automation (n8n)", icon: "fa-gears" },
+                { name: "Git & GitHub", icon: "fa-brands fa-github" }
+            ];
+
+            skillList.forEach(s => {
+                const el = document.createElement("div");
+                el.className = "glass-card";
+                el.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title"><i class="${s.icon}"></i> ${s.name}</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: ${Math.min(100, (state.stats.totalXP / 3000) * 100)}%;"></div>
+                    </div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">Status: Active Learning</div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        /* Projects Tracker Renderer */
+        function renderProjects() {
+            const grid = document.getElementById("projects-grid");
+            grid.innerHTML = "";
+            const projects = [
+                { title: "E-Commerce SQL Analysis", tool: "SQL", status: "In Progress" },
+                { title: "Python Automated Excel Cleaner", tool: "Python / pandas", status: "Planned" },
+                { title: "E-Commerce Power BI Executive Dashboard", tool: "Power BI / DAX", status: "Planned" },
+                { title: "Automated Sales Alert System", tool: "n8n / APIs", status: "Planned" }
+            ];
+
+            projects.forEach(p => {
+                const card = document.createElement("div");
+                card.className = "glass-card";
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${p.title}</div>
+                        <span class="level-badge">${p.status}</span>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-muted);">Built with: ${p.tool}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        /* Resources Vault (Full CRUD) */
+        function renderResources() {
+            const grid = document.getElementById("resources-grid");
+            grid.innerHTML = "";
+            state.resources.forEach(r => {
+                const card = document.createElement("div");
+                card.className = "glass-card";
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-link"></i> ${r.title}</div>
+                        <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(0,210,255,0.1); color:var(--neon-blue);">${r.category}</span>
+                    </div>
+                    <a href="${r.url}" target="_blank" style="font-size:12px; color:var(--neon-cyan); text-decoration:none; display:block; margin-bottom:12px;">Visit Resource <i class="fa-solid fa-external-link"></i></a>
+                    <div style="display:flex; justify-content:flex-end; gap:8px;">
+                        <button class="btn btn-danger" onclick="deleteResource(${r.id})"><i class="fa-solid fa-trash"></i> Delete</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openAddResourceModal() {
+            const title = prompt("Enter Resource Title:");
+            const url = prompt("Enter Resource URL:");
+            const category = prompt("Enter Category (e.g. Excel, SQL, Python):") || "General";
+            if (title && url) {
+                state.resources.push({ id: Date.now(), title, url, category });
+                saveLocalStorage();
+                renderResources();
+            }
+        }
+
+        function deleteResource(id) {
+            state.resources = state.resources.filter(r => r.id !== id);
+            saveLocalStorage();
+            renderResources();
+        }
+
+        /* Notes Section (Full CRUD) */
+        function renderNotes() {
+            const grid = document.getElementById("notes-grid");
+            grid.innerHTML = "";
+            const search = document.getElementById("note-search-input")?.value.toLowerCase() || "";
+            
+            const filteredNotes = state.notes.filter(n => n.title.toLowerCase().includes(search) || n.body.toLowerCase().includes(search));
+
+            filteredNotes.forEach(n => {
+                const card = document.createElement("div");
+                card.className = "glass-card";
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${n.title}</div>
+                        <div style="font-size:11px; color:var(--text-dim);">${n.date}</div>
+                    </div>
+                    <p style="font-size:13px; color:var(--text-muted); white-space:pre-wrap; margin-bottom:14px;">${n.body}</p>
+                    <div style="display:flex; justify-content:flex-end; gap:8px;">
+                        <button class="btn btn-secondary" onclick="editNote(${n.id})"><i class="fa-solid fa-pen"></i> Edit</button>
+                        <button class="btn btn-danger" onclick="deleteNote(${n.id})"><i class="fa-solid fa-trash"></i> Delete</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openAddNoteModal() {
+            const title = prompt("Note Title:");
+            const body = prompt("Note Content:");
+            if (title && body) {
+                state.notes.push({ id: Date.now(), title, body, date: new Date().toLocaleDateString() });
+                saveLocalStorage();
+                renderNotes();
+            }
+        }
+
+        function editNote(id) {
+            const note = state.notes.find(n => n.id === id);
+            if (!note) return;
+            const newTitle = prompt("Edit Title:", note.title);
+            const newBody = prompt("Edit Content:", note.body);
+            if (newTitle && newBody) {
+                note.title = newTitle;
+                note.body = newBody;
+                saveLocalStorage();
+                renderNotes();
+            }
+        }
+
+        function deleteNote(id) {
+            state.notes = state.notes.filter(n => n.id !== id);
+            saveLocalStorage();
+            renderNotes();
+        }
+
+        /* Client CRM Section (Full CRUD) */
+        function renderCRM() {
+            const tbody = document.getElementById("client-table-body");
+            tbody.innerHTML = "";
+            let totalVal = 0, prospects = 0, contacted = 0, won = 0;
+
+            state.clients.forEach(c => {
+                prospects++;
+                if (c.status === "Contacted") contacted++;
+                if (c.status === "Won") won++;
+                totalVal += Number(c.value || 0);
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${c.company}</td>
+                    <td>${c.industry}</td>
+                    <td>${c.service}</td>
+                    <td>$${c.value}</td>
+                    <td><span class="level-badge">${c.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="editClient(${c.id})"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn btn-danger" onclick="deleteClient(${c.id})"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById("crm-stat-prospects").innerText = prospects;
+            document.getElementById("crm-stat-contacted").innerText = contacted;
+            document.getElementById("crm-stat-won").innerText = won;
+            document.getElementById("crm-stat-pipeline").innerText = "$" + totalVal;
+        }
+
+        function openAddClientModal() {
+            const company = prompt("Company Name:");
+            const industry = prompt("Industry:") || "E-Commerce";
+            const service = prompt("Service Offered:") || "Dashboard Creation";
+            const value = prompt("Estimated Value ($):") || "150";
+            if (company) {
+                state.clients.push({ id: Date.now(), company, industry, service, value, status: "Prospect" });
+                saveLocalStorage();
+                renderCRM();
+            }
+        }
+
+        function editClient(id) {
+            const client = state.clients.find(c => c.id === id);
+            if (!client) return;
+            const status = prompt("Update Status (Prospect, Contacted, Proposal, Won, Lost):", client.status);
+            if (status) {
+                client.status = status;
+                saveLocalStorage();
+                renderCRM();
+            }
+        }
+
+        function deleteClient(id) {
+            state.clients = state.clients.filter(c => c.id !== id);
+            saveLocalStorage();
+            renderCRM();
+        }
+
+        /* Job Applications (Full CRUD) */
+        function renderJobs() {
+            const tbody = document.getElementById("jobs-table-body");
+            tbody.innerHTML = "";
+            let applied = 0, interviews = 0, tests = 0, offers = 0;
+
+            state.jobs.forEach(j => {
+                applied++;
+                if (j.status === "Interview") interviews++;
+                if (j.status === "Technical Test") tests++;
+                if (j.status === "Offer") offers++;
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${j.company}</td>
+                    <td>${j.role}</td>
+                    <td>${j.type}</td>
+                    <td><span class="level-badge">${j.status}</span></td>
+                    <td>${j.date}</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteJob(${j.id})"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById("job-stat-applied").innerText = applied;
+            document.getElementById("job-stat-interviews").innerText = interviews;
+            document.getElementById("job-stat-tests").innerText = tests;
+            document.getElementById("job-stat-offers").innerText = offers;
+        }
+
+        function openAddJobModal() {
+            const company = prompt("Company Name:");
+            const role = prompt("Role Title:") || "Data Analyst";
+            const type = prompt("Remote or On-site:") || "Remote";
+            if (company) {
+                state.jobs.push({ id: Date.now(), company, role, type, status: "Applied", date: new Date().toLocaleDateString() });
+                saveLocalStorage();
+                renderJobs();
+            }
+        }
+
+        function deleteJob(id) {
+            state.jobs = state.jobs.filter(j => j.id !== id);
+            saveLocalStorage();
+            renderJobs();
+        }
+
+        /* Quotes Engine */
+        function nextQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            document.getElementById("quote-text").innerText = `"${quotes[currentQuoteIndex]}"`;
+        }
+        function prevQuote() {
+            currentQuoteIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
+            document.getElementById("quote-text").innerText = `"${quotes[currentQuoteIndex]}"`;
+        }
+
+        /* Focus Mode Timer */
+        let timerInterval = null;
+        let timerSeconds = 1500;
+
+        function openFocusMode() {
+            document.getElementById("focus-modal").classList.add("active");
+        }
+        function closeFocusMode() {
+            document.getElementById("focus-modal").classList.remove("active");
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+        function setTimer(mins) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = mins * 60;
+            updateTimerDisplay();
+        }
+        function updateTimerDisplay() {
+            const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+            const s = (timerSeconds % 60).toString().padStart(2, '0');
+            document.getElementById("focus-timer").innerText = `${m}:${s}`;
+        }
+        function toggleTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                document.getElementById("timer-start-btn").innerText = "Start";
+            } else {
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                    }
+                }, 1000);
+                document.getElementById("timer-start-btn").innerText = "Pause";
+            }
+        }
+
+        /* Export/Import/Reset */
+        function exportData() {
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "analytics_sprint_backup.json";
+            a.click();
+        }
+
+        function importData(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                try {
+                    state = JSON.parse(evt.target.result);
+                    saveLocalStorage();
+                    initApp();
+                    alert("Data successfully imported!");
+                } catch(err) { alert("Invalid file format."); }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetAllData() {
+            if (confirm("Are you sure you want to reset all data? Every stat will return to 0.")) {
+                localStorage.removeItem("analytics_sprint_state");
+                location.reload();
+            }
+        }
+
+        function generateCareerReport() {
+            const output = `
+==================================================
+30-DAY DATA ANALYST + AUTOMATION SPRINT REPORT
+==================================================
+Candidate: ${state.identity.name}
+Total XP Earned: ${state.stats.totalXP}
+Current Stage: ${calculateLevel(state.stats.totalXP)}
+
+CORE METRICS & DELIVERABLES:
+- Portfolio Projects Completed: ${state.jobs.length}
+- Client Prospects Logged: ${state.clients.length}
+- Remote Job Applications Sent: ${state.jobs.length}
+
+TECHNICAL STACK SUMMARY:
+- Excel & Power Query Data Wrangling
+- Relational Databases & SQL Analysis
+- Python Data Analysis (pandas, NumPy)
+- Business Intelligence (Power BI, DAX)
+- Workflow Automation (n8n, REST APIs)
+==================================================
+            `;
+            document.getElementById("career-report-output").innerText = output;
+        }
+
+        /* Boot Application */
+        window.onload = initApp;
+    </script>
+</body>
+</html>

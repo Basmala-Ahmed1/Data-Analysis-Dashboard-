@@ -53,7 +53,6 @@
             overflow-x: hidden;
         }
 
-        /* Responsive Tablet-First Layout */
         .app-container {
             display: flex;
             flex: 1;
@@ -61,7 +60,6 @@
             overflow: hidden;
         }
 
-        /* Sidebar Navigation */
         .sidebar {
             width: 260px;
             background: rgba(10, 14, 29, 0.9);
@@ -144,7 +142,6 @@
             text-align: center;
         }
 
-        /* Main Content Area */
         .main-wrapper {
             flex: 1;
             display: flex;
@@ -212,24 +209,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cards & Grid Utilities */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
         .glass-card {
             background: var(--bg-card);
@@ -263,22 +245,12 @@
             gap: 8px;
         }
 
-        .card-title i {
-            color: var(--neon-blue);
-        }
+        .card-title i { color: var(--neon-blue); }
 
-        /* Identity Card Styling */
         .identity-card {
             background: linear-gradient(135deg, rgba(14, 19, 38, 0.9), rgba(28, 18, 50, 0.8));
             border: 1px solid rgba(157, 78, 221, 0.3);
             box-shadow: 0 0 25px rgba(157, 78, 221, 0.15);
-        }
-
-        .identity-header {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 20px;
         }
 
         .user-avatar {
@@ -321,7 +293,6 @@
             text-transform: uppercase;
         }
 
-        /* Progress Components */
         .progress-bar-container {
             width: 100%;
             height: 12px;
@@ -354,7 +325,6 @@
             margin-top: 4px;
         }
 
-        /* Buttons & Controls */
         .btn {
             padding: 8px 16px;
             border-radius: 8px;
@@ -397,11 +367,8 @@
             border: 1px solid rgba(247, 37, 133, 0.3);
         }
 
-        .btn-danger:hover {
-            background: rgba(247, 37, 133, 0.3);
-        }
+        .btn-danger:hover { background: rgba(247, 37, 133, 0.3); }
 
-        /* Dynamic Day Plan Style */
         .day-accordion {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -420,9 +387,7 @@
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .day-accordion-header:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
+        .day-accordion-header:hover { background: rgba(255, 255, 255, 0.05); }
 
         .day-accordion-body {
             padding: 24px;
@@ -430,9 +395,7 @@
             display: none;
         }
 
-        .day-accordion.active .day-accordion-body {
-            display: block;
-        }
+        .day-accordion.active .day-accordion-body { display: block; }
 
         .task-item {
             display: flex;
@@ -444,11 +407,10 @@
             border-radius: 10px;
             margin-bottom: 8px;
             transition: var(--transition);
+            cursor: pointer;
         }
 
-        .task-item:hover {
-            border-color: rgba(0, 210, 255, 0.3);
-        }
+        .task-item:hover { border-color: rgba(0, 210, 255, 0.3); }
 
         .task-item.completed {
             opacity: 0.55;
@@ -456,9 +418,7 @@
             border-color: rgba(16, 185, 129, 0.2);
         }
 
-        .task-item.completed .task-text {
-            text-decoration: line-through;
-        }
+        .task-item.completed .task-text { text-decoration: line-through; }
 
         .task-checkbox {
             width: 20px;
@@ -468,7 +428,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             margin-top: 2px;
             transition: var(--transition);
         }
@@ -479,7 +438,6 @@
             color: #000;
         }
 
-        /* Tables */
         .custom-table {
             width: 100%;
             border-collapse: collapse;
@@ -498,11 +456,8 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
-        .custom-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
+        .custom-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
 
-        /* Focus Overlay */
         .focus-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -515,9 +470,7 @@
             justify-content: center;
         }
 
-        .focus-overlay.active {
-            display: flex;
-        }
+        .focus-overlay.active { display: flex; }
 
         .timer-display {
             font-size: 80px;
@@ -528,7 +481,6 @@
             margin: 20px 0;
         }
 
-        /* Form Controls */
         input[type="text"], input[type="number"], select, textarea {
             width: 100%;
             background: rgba(0, 0, 0, 0.3);
@@ -546,45 +498,20 @@
             box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 210, 255, 0.4);
-        }
-
-        /* Media Query for Tablet Optimization */
         @media (max-width: 900px) {
-            .sidebar {
-                width: 70px;
-            }
-            .sidebar .brand-title, .sidebar .nav-item span {
-                display: none;
-            }
-            .grid-3, .grid-4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .sidebar { width: 70px; }
+            .sidebar .brand-title, .sidebar .nav-item span { display: none; }
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 600px) {
-            .grid-2, .grid-3, .grid-4 {
-                grid-template-columns: 1fr;
-            }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <!-- Navigation Sidebar -->
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="brand-header">
                 <div class="brand-logo"><i class="fa-solid fa-chart-line"></i></div>
@@ -636,7 +563,6 @@
 
         <!-- Main Content Area -->
         <div class="main-wrapper">
-            <!-- Top Navbar -->
             <header class="top-bar">
                 <div class="page-title-container">
                     <h1 id="current-page-title">Career Dashboard</h1>
@@ -654,14 +580,10 @@
                 </div>
             </header>
 
-            <!-- Scrollable Content -->
             <main class="content-scrollable">
-
                 <!-- 1. HOME TAB -->
                 <section id="view-home" class="page-view active">
                     <div class="grid-3" style="margin-bottom: 24px;">
-                        
-                        <!-- Identity Card -->
                         <div class="glass-card identity-card grid-2" style="grid-column: span 2;">
                             <div style="display: flex; gap: 16px; align-items: center;">
                                 <div class="user-avatar"><i class="fa-solid fa-user-ninja"></i></div>
@@ -690,7 +612,6 @@
                             </div>
                         </div>
 
-                        <!-- Motivational Quote Widget -->
                         <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                             <div class="card-title"><i class="fa-solid fa-quote-left"></i> Sprint Motivation</div>
                             <p id="quote-text" style="font-style: italic; font-size: 14px; color: var(--text-muted); margin: 12px 0;">
@@ -703,7 +624,6 @@
                         </div>
                     </div>
 
-                    <!-- Journey Overall Stats -->
                     <div class="glass-card" style="margin-bottom: 24px;">
                         <div class="card-header">
                             <div class="card-title"><i class="fa-solid fa-flag-checkered"></i> 30-Day Sprint Progress</div>
@@ -732,7 +652,6 @@
                         </div>
                     </div>
 
-                    <!-- "What I Can Do Now" Auto-Updating Module -->
                     <div class="glass-card">
                         <div class="card-header">
                             <div class="card-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Unlocked Operational Capabilities</div>
@@ -747,14 +666,9 @@
                 <section id="view-plan" class="page-view">
                     <div class="glass-card" style="margin-bottom: 20px;">
                         <div class="card-header">
-                            <div class="card-title"><i class="fa-solid fa-bullseye"></i> 30-Day Data Analyst & Automation Sprint Plan</div>
-                            <div style="display: flex; gap: 10px;">
-                                <input type="text" id="task-search" placeholder="Search tasks..." onkeyup="filterTasks()" style="width: 200px;">
-                            </div>
+                            <div class="card-title"><i class="fa-solid fa-bullseye"></i> 30-Day Data Analyst & Automation Sprint Curriculum</div>
                         </div>
                     </div>
-
-                    <!-- Day Accordions Container -->
                     <div id="days-container"></div>
                 </section>
 
@@ -773,7 +687,7 @@
                     <div class="grid-2" id="projects-grid"></div>
                 </section>
 
-                <!-- 5. RESOURCES VAULT (Full CRUD) -->
+                <!-- 5. RESOURCES VAULT -->
                 <section id="view-resources" class="page-view">
                     <div class="glass-card" style="margin-bottom: 20px;">
                         <div class="card-header">
@@ -784,23 +698,23 @@
                     <div class="grid-3" id="resources-grid"></div>
                 </section>
 
-                <!-- 6. NOTES TAB (Full CRUD) -->
+                <!-- 6. NOTES TAB -->
                 <section id="view-notes" class="page-view">
                     <div class="glass-card" style="margin-bottom: 20px;">
                         <div class="card-header">
-                            <div class="card-title"><i class="fa-solid fa-note-sticky"></i> Knowledge Base & Daily Notes</div>
+                            <div class="card-title"><i class="fa-solid fa-note-sticky"></i> Knowledge Base & Notes</div>
                             <button class="btn btn-primary" onclick="openAddNoteModal()"><i class="fa-solid fa-plus"></i> Create Note</button>
                         </div>
-                        <input type="text" id="note-search-input" placeholder="Search notes by keyword..." onkeyup="renderNotes()" style="margin-top: 10px;">
+                        <input type="text" id="note-search-input" placeholder="Search notes..." onkeyup="renderNotes()" style="margin-top: 10px;">
                     </div>
                     <div class="grid-2" id="notes-grid"></div>
                 </section>
 
-                <!-- 7. CLIENT CRM TAB (Full CRUD) -->
+                <!-- 7. CLIENT CRM TAB -->
                 <section id="view-crm" class="page-view">
                     <div class="glass-card" style="margin-bottom: 20px;">
                         <div class="card-header">
-                            <div class="card-title"><i class="fa-solid fa-handshake"></i> Client Prospect Pipeline ($100–$500 Goal)</div>
+                            <div class="card-title"><i class="fa-solid fa-handshake"></i> Client CRM Pipeline ($100–$500 Target)</div>
                             <button class="btn btn-primary" onclick="openAddClientModal()"><i class="fa-solid fa-plus"></i> Add Prospect</button>
                         </div>
                         <div class="grid-4" style="margin-top: 10px;">
@@ -864,10 +778,8 @@
                         <div class="card-header">
                             <div class="card-title"><i class="fa-solid fa-award"></i> Weekly Reflection & Sprint Final Report</div>
                         </div>
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                            <button class="btn btn-secondary" onclick="generateCareerReport()"><i class="fa-solid fa-file-invoice"></i> Generate Sprint Report</button>
-                        </div>
-                        <div id="career-report-output" style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: pre-wrap; color: var(--neon-cyan);">
+                        <button class="btn btn-secondary" onclick="generateCareerReport()"><i class="fa-solid fa-file-invoice"></i> Generate Sprint Report</button>
+                        <div id="career-report-output" style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: pre-wrap; color: var(--neon-cyan); margin-top: 16px;">
 Click "Generate Sprint Report" to compile your full 30-day performance and career readiness overview.
                         </div>
                     </div>
@@ -888,7 +800,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                         </div>
                     </div>
                 </section>
-
             </main>
         </div>
     </div>
@@ -906,13 +817,11 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
     </div>
 
     <script>
-        /* Global Application State & Storage Blueprint */
         let state = {
             identity: { name: "User Candidate", age: 24, iq: "125", ability: "Fast Learner" },
             stats: { totalXP: 0, streak: 0, hoursLogged: 0 },
             tasksCompleted: {},
             dailyToDos: {},
-            dailyNotes: {},
             resources: [
                 { id: 1, title: "Microsoft Excel Training", category: "Excel", url: "https://support.microsoft.com/excel" },
                 { id: 2, title: "SQLBolt Interactive SQL", category: "SQL", url: "https://sqlbolt.com/" },
@@ -936,44 +845,45 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         ];
         let currentQuoteIndex = 0;
 
-        /* Curriculum Definition */
+        /* FULL 30-DAY PLAN DEFINITION */
         const sprintPlan = [
+            // WEEK 1
             {
-                day: 1, week: 1, title: "Excel Foundations", time: "5–6 hours",
+                day: 1, week: 1, title: "Excel Foundations", time: "5–6 hours", skill: "Excel",
                 deliverable: "A clean 100-row sales spreadsheet with working calculations and 3 written business observations.",
-                resource: "Microsoft Excel training / Google Sheets",
+                test: "Can you explain the difference between revenue, cost, and profit without looking them up?",
                 tasks: [
-                    { id: "d1_1", text: "Open Excel Online or Google Sheets and create a workbook named Sales_Analysis_Project.", xp: 20 },
-                    { id: "d1_2", text: "Create a dataset with at least 100 sales records. Include Date, Order ID, Product, Category, Quantity, Unit Price, Cost, Region, and Customer ID.", xp: 40 },
-                    { id: "d1_3", text: "Format the data as a table and make the headers clear.", xp: 20 },
+                    { id: "d1_1", text: "Open Excel Online or Google Sheets and create workbook named Sales_Analysis_Project.", xp: 20 },
+                    { id: "d1_2", text: "Create dataset with 100 sales records (Date, Order ID, Product, Category, Quantity, Unit Price, Cost, Region, Customer ID).", xp: 40 },
+                    { id: "d1_3", text: "Format data as table with clear headers.", xp: 20 },
                     { id: "d1_4", text: "Calculate Revenue = Quantity × Unit Price.", xp: 20 },
                     { id: "d1_5", text: "Calculate Profit = Revenue − Cost × Quantity.", xp: 20 },
-                    { id: "d1_6", text: "Use SUM, AVERAGE, MIN, MAX, and COUNTA to summarize the data.", xp: 30 },
-                    { id: "d1_7", text: "Calculate total revenue, total profit, average order value, and number of orders.", xp: 30 },
-                    { id: "d1_8", text: "Format currency, dates, and percentages correctly.", xp: 15 },
-                    { id: "d1_9", text: "Write 3 observations about the business using your results.", xp: 25 }
+                    { id: "d1_6", text: "Use SUM, AVERAGE, MIN, MAX, COUNTA to summarize data.", xp: 30 },
+                    { id: "d1_7", text: "Calculate total revenue, total profit, AOV, and order count.", xp: 30 },
+                    { id: "d1_8", text: "Format currency, dates, percentages correctly.", xp: 15 },
+                    { id: "d1_9", text: "Write 3 business observations from results.", xp: 25 }
                 ]
             },
             {
-                day: 2, week: 1, title: "Excel Analytical Formulas", time: "5–6 hours",
+                day: 2, week: 1, title: "Excel Analytical Formulas", time: "5–6 hours", skill: "Excel",
                 deliverable: "An Excel business analysis sheet.",
-                resource: "Excel Formulas Guide",
+                test: "Answer 'Which region generated the most profit?' using a formula.",
                 tasks: [
-                    { id: "d2_1", text: "Review Day 1's dataset.", xp: 15 },
+                    { id: "d2_1", text: "Review Day 1 dataset.", xp: 15 },
                     { id: "d2_2", text: "Learn IF, SUMIF, SUMIFS, COUNTIF, COUNTIFS.", xp: 35 },
-                    { id: "d2_3", text: "Learn XLOOKUP or use INDEX/MATCH if unavailable.", xp: 35 },
+                    { id: "d2_3", text: "Learn XLOOKUP or INDEX/MATCH.", xp: 35 },
                     { id: "d2_4", text: "Calculate revenue by region.", xp: 25 },
-                    { id: "d2_5", text: "Identify the best-selling product.", xp: 20 },
+                    { id: "d2_5", text: "Identify best-selling product.", xp: 20 },
                     { id: "d2_6", text: "Count orders by category.", xp: 20 },
                     { id: "d2_7", text: "Calculate profit margin for each product.", xp: 25 },
-                    { id: "d2_8", text: "Create a summary sheet with at least 6 business metrics.", xp: 40 },
-                    { id: "d2_9", text: "Write 5 questions your spreadsheet can answer.", xp: 25 }
+                    { id: "d2_8", text: "Create summary sheet with at least 6 business metrics.", xp: 40 },
+                    { id: "d2_9", text: "Write 5 business questions your spreadsheet answers.", xp: 25 }
                 ]
             },
             {
-                day: 3, week: 1, title: "PivotTables + Dashboard", time: "5–6 hours",
+                day: 3, week: 1, title: "PivotTables + Dashboard", time: "5–6 hours", skill: "Excel",
                 deliverable: "Your first sales dashboard.",
-                resource: "PivotTable Fundamentals",
+                test: "Someone should understand the main results in under 1 minute.",
                 tasks: [
                     { id: "d3_1", text: "Learn PivotTables.", xp: 40 },
                     { id: "d3_2", text: "Summarize revenue by month.", xp: 25 },
@@ -981,74 +891,398 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                     { id: "d3_4", text: "Compare sales by region.", xp: 25 },
                     { id: "d3_5", text: "Create 3 charts.", xp: 30 },
                     { id: "d3_6", text: "Add conditional formatting.", xp: 20 },
-                    { id: "d3_7", text: "Create a dashboard sheet with KPI cards.", xp: 50 },
-                    { id: "d3_8", text: "Add a short explanation of the findings.", xp: 35 }
+                    { id: "d3_7", text: "Create dashboard sheet with KPI cards.", xp: 50 },
+                    { id: "d3_8", text: "Add short explanation of findings.", xp: 35 }
                 ]
             },
             {
-                day: 4, week: 1, title: "Power Query + Data Cleaning", time: "5–6 hours",
+                day: 4, week: 1, title: "Power Query + Data Cleaning", time: "5–6 hours", skill: "Power Query",
                 deliverable: "Before-and-after data cleaning project.",
-                resource: "Power Query Documentation",
+                test: "Explain why data cleaning matters before analysis.",
                 tasks: [
-                    { id: "d4_1", text: "Learn what ETL means: Extract, Transform, Load.", xp: 25 },
-                    { id: "d4_2", text: "Import a messy CSV dataset.", xp: 25 },
-                    { id: "d4_3", text: "Remove duplicates.", xp: 20 },
+                    { id: "d4_1", text: "Learn ETL concept: Extract, Transform, Load.", xp: 25 },
+                    { id: "d4_2", text: "Import messy CSV dataset.", xp: 25 },
+                    { id: "d4_3", text: "Remove duplicate rows.", xp: 20 },
                     { id: "d4_4", text: "Fix inconsistent category names.", xp: 25 },
                     { id: "d4_5", text: "Handle missing values.", xp: 25 },
                     { id: "d4_6", text: "Correct date and number formats.", xp: 20 },
                     { id: "d4_7", text: "Split and merge columns.", xp: 25 },
-                    { id: "d4_8", text: "Load the cleaned result.", xp: 30 },
-                    { id: "d4_9", text: "Write down the problems you fixed.", xp: 30 }
+                    { id: "d4_8", text: "Load cleaned output.", xp: 30 },
+                    { id: "d4_9", text: "Document cleaned data problems.", xp: 30 }
                 ]
             },
             {
-                day: 5, week: 1, title: "SQL Fundamentals", time: "5–6 hours",
-                deliverable: "A document containing 10 working SQL queries.",
-                resource: "SQLBolt Interactive Tutorials",
+                day: 5, week: 1, title: "SQL Fundamentals", time: "5–6 hours", skill: "SQL",
+                deliverable: "Document containing 10 working SQL queries.",
+                test: "Retrieve the top 5 products by revenue.",
                 tasks: [
                     { id: "d5_1", text: "Open SQLBolt and learn SELECT, FROM, WHERE.", xp: 25 },
                     { id: "d5_2", text: "Learn ORDER BY and LIMIT.", xp: 20 },
                     { id: "d5_3", text: "Practice comparison operators.", xp: 20 },
                     { id: "d5_4", text: "Learn COUNT, SUM, AVG, MIN, MAX.", xp: 30 },
                     { id: "d5_5", text: "Practice GROUP BY.", xp: 35 },
-                    { id: "d5_6", text: "Complete the first 6 SQLBolt lessons.", xp: 50 },
-                    { id: "d5_7", text: "Write 10 queries using a sample sales database.", xp: 70 }
+                    { id: "d5_6", text: "Complete first 6 SQLBolt lessons.", xp: 50 },
+                    { id: "d5_7", text: "Write 10 queries on sample sales database.", xp: 70 }
                 ]
             },
             {
-                day: 6, week: 1, title: "SQL Joins + Intermediate Queries", time: "5–6 hours",
+                day: 6, week: 1, title: "SQL Joins + Intermediate Queries", time: "5–6 hours", skill: "SQL",
                 deliverable: "SQL query collection with explanations.",
-                resource: "SQL Joins Visual Guide",
+                test: "Explain difference between INNER JOIN and LEFT JOIN.",
                 tasks: [
                     { id: "d6_1", text: "Learn INNER JOIN and LEFT JOIN.", xp: 40 },
-                    { id: "d6_2", text: "Learn CASE WHEN.", xp: 30 },
-                    { id: "d6_3", text: "Understand NULL values.", xp: 20 },
+                    { id: "d6_2", text: "Learn CASE WHEN conditional logic.", xp: 30 },
+                    { id: "d6_3", text: "Understand NULL value handling.", xp: 20 },
                     { id: "d6_4", text: "Learn subqueries.", xp: 40 },
-                    { id: "d6_5", text: "Practice joining customers, orders, and products.", xp: 45 },
-                    { id: "d6_6", text: "Calculate revenue by customer.", xp: 30 },
+                    { id: "d6_5", text: "Practice joining customers, orders, products.", xp: 45 },
+                    { id: "d6_6", text: "Calculate revenue per customer.", xp: 30 },
                     { id: "d6_7", text: "Identify customers with no orders.", xp: 30 },
-                    { id: "d6_8", text: "Solve 10 practice questions.", xp: 60 }
+                    { id: "d6_8", text: "Solve 10 SQL practice questions.", xp: 60 }
                 ]
             },
             {
-                day: 7, week: 1, title: "SQL Portfolio Project", time: "5–6 hours",
+                day: 7, week: 1, title: "SQL Portfolio Project", time: "5–6 hours", skill: "SQL",
                 deliverable: "Project 1 — E-commerce SQL Analysis.",
-                resource: "Kaggle E-Commerce Datasets",
+                test: "Your repository explains dataset, questions, queries, findings.",
                 tasks: [
-                    { id: "d7_1", text: "Choose a free e-commerce dataset from Kaggle Datasets.", xp: 30 },
-                    { id: "d7_2", text: "Inspect its tables and columns.", xp: 20 },
+                    { id: "d7_1", text: "Select free Kaggle e-commerce dataset.", xp: 30 },
+                    { id: "d7_2", text: "Inspect tables and schema.", xp: 20 },
                     { id: "d7_3", text: "Write 15 business questions.", xp: 40 },
-                    { id: "d7_4", text: "Answer them using SQL.", xp: 80 },
-                    { id: "d7_5", text: "Calculate revenue, average order value, and top products.", xp: 40 },
+                    { id: "d7_4", text: "Answer questions using SQL.", xp: 80 },
+                    { id: "d7_5", text: "Calculate revenue, AOV, top products.", xp: 40 },
                     { id: "d7_6", text: "Analyze customer activity.", xp: 40 },
-                    { id: "d7_7", text: "Write a one-page findings report.", xp: 50 },
-                    { id: "d7_8", text: "Create a GitHub account or repository.", xp: 30 },
-                    { id: "d7_9", text: "Upload your SQL file and project README.", xp: 70 }
+                    { id: "d7_7", text: "Write 1-page findings report.", xp: 50 },
+                    { id: "d7_8", text: "Create GitHub repository.", xp: 30 },
+                    { id: "d7_9", text: "Upload SQL file and README.", xp: 70 }
+                ]
+            },
+            // WEEK 2
+            {
+                day: 8, week: 2, title: "Python Foundations Refresh", time: "5–6 hours", skill: "Python",
+                deliverable: "Python fundamentals notebook.",
+                test: "Write a function that calculates profit and profit margin.",
+                tasks: [
+                    { id: "d8_1", text: "Open Google Colab notebook.", xp: 15 },
+                    { id: "d8_2", text: "Review variables, data types, booleans.", xp: 20 },
+                    { id: "d8_3", text: "Practice lists, dictionaries, tuples.", xp: 25 },
+                    { id: "d8_4", text: "Practice if/else conditions and loops.", xp: 25 },
+                    { id: "d8_5", text: "Write 5 custom Python functions.", xp: 35 },
+                    { id: "d8_6", text: "Practice try/except error handling.", xp: 25 },
+                    { id: "d8_7", text: "Solve 10 Python exercises.", xp: 50 }
+                ]
+            },
+            {
+                day: 9, week: 2, title: "NumPy + pandas", time: "5–6 hours", skill: "Python",
+                deliverable: "A notebook that loads and explores a dataset.",
+                test: "Load CSV and answer 5 questions using pandas.",
+                tasks: [
+                    { id: "d9_1", text: "Understand NumPy arrays and pandas DataFrames.", xp: 25 },
+                    { id: "d9_2", text: "Import pandas and load CSV file.", xp: 25 },
+                    { id: "d9_3", text: "Inspect head(), shape, columns, info().", xp: 20 },
+                    { id: "d9_4", text: "Select rows/columns using loc and iloc.", xp: 30 },
+                    { id: "d9_5", text: "Filter records by conditions.", xp: 25 },
+                    { id: "d9_6", text: "Calculate summary statistics.", xp: 25 },
+                    { id: "d9_7", text: "Export processed DataFrame to CSV.", xp: 20 }
+                ]
+            },
+            {
+                day: 10, week: 2, title: "Advanced pandas", time: "5–6 hours", skill: "Python",
+                deliverable: "Python e-commerce analysis notebook.",
+                test: "Reproduce Day 2 Excel analysis using pandas.",
+                tasks: [
+                    { id: "d10_1", text: "Handle missing values and drop duplicates.", xp: 30 },
+                    { id: "d10_2", text: "Convert data types and dates.", xp: 25 },
+                    { id: "d10_3", text: "Perform groupby aggregations.", xp: 40 },
+                    { id: "d10_4", text: "Merge DataFrames using pd.merge().", xp: 35 },
+                    { id: "d10_5", text: "Create calculated columns.", xp: 25 },
+                    { id: "d10_6", text: "Analyze sales by month and category.", xp: 35 },
+                    { id: "d10_7", text: "Write 5 business insights.", xp: 30 }
+                ]
+            },
+            {
+                day: 11, week: 2, title: "Data Visualization", time: "5–6 hours", skill: "Data Visualization",
+                deliverable: "4 charts with short interpretations.",
+                test: "Choose chart type based on question asked.",
+                tasks: [
+                    { id: "d11_1", text: "Learn Matplotlib/Seaborn basics.", xp: 25 },
+                    { id: "d11_2", text: "Create line chart for trends.", xp: 25 },
+                    { id: "d11_3", text: "Create bar chart for comparisons.", xp: 25 },
+                    { id: "d11_4", text: "Create histogram for distributions.", xp: 25 },
+                    { id: "d11_5", text: "Create scatter plot for correlations.", xp: 25 },
+                    { id: "d11_6", text: "Format chart titles, labels, colors.", xp: 20 },
+                    { id: "d11_7", text: "Write business insights for each chart.", xp: 30 }
+                ]
+            },
+            {
+                day: 12, week: 2, title: "Practical Statistics", time: "5–6 hours", skill: "Statistics",
+                deliverable: "Statistics notebook with business examples.",
+                test: "Explain why correlation does not prove causation.",
+                tasks: [
+                    { id: "d12_1", text: "Review mean, median, mode.", xp: 20 },
+                    { id: "d12_2", text: "Learn range and standard deviation.", xp: 25 },
+                    { id: "d12_3", text: "Calculate percent change and growth rate.", xp: 25 },
+                    { id: "d12_4", text: "Analyze correlation vs causation.", xp: 30 },
+                    { id: "d12_5", text: "Detect and evaluate statistical outliers.", xp: 30 },
+                    { id: "d12_6", text: "Apply metrics to sales dataset.", xp: 30 },
+                    { id: "d12_7", text: "Write 5 statistical observations.", xp: 25 }
+                ]
+            },
+            {
+                day: 13, week: 2, title: "APIs + JSON", time: "5–6 hours", skill: "APIs",
+                deliverable: "API-to-CSV notebook.",
+                test: "Explain flow from API response to dataset.",
+                tasks: [
+                    { id: "d13_1", text: "Understand HTTP GET requests and status codes.", xp: 25 },
+                    { id: "d13_2", text: "Understand JSON data structure.", xp: 25 },
+                    { id: "d13_3", text: "Use Python requests library.", xp: 30 },
+                    { id: "d13_4", text: "Fetch data from public API.", xp: 35 },
+                    { id: "d13_5", text: "Parse JSON into Python dict/list.", xp: 30 },
+                    { id: "d13_6", text: "Convert parsed data into pandas DataFrame.", xp: 35 },
+                    { id: "d13_7", text: "Export API data to CSV file.", xp: 20 }
+                ]
+            },
+            {
+                day: 14, week: 2, title: "Python Automation", time: "5–6 hours", skill: "Python",
+                deliverable: "Automated sales data cleaner script.",
+                test: "Demonstrate repeatable automated cleaning process.",
+                tasks: [
+                    { id: "d14_1", text: "Review Python file handling and openpyxl.", xp: 30 },
+                    { id: "d14_2", text: "Build script to load raw Excel/CSV file.", xp: 35 },
+                    { id: "d14_3", text: "Automate column cleaning and deduplication.", xp: 40 },
+                    { id: "d14_4", text: "Automate business KPI metrics calculation.", xp: 40 },
+                    { id: "d14_5", text: "Export cleaned file automatically.", xp: 30 },
+                    { id: "d14_6", text: "Add try/except error handling.", xp: 30 },
+                    { id: "d14_7", text: "Write simple script setup guide.", xp: 25 }
+                ]
+            },
+            // WEEK 3
+            {
+                day: 15, week: 3, title: "Power BI Fundamentals", time: "5–6 hours", skill: "Power BI",
+                deliverable: "Power BI workflow notes + initial CV draft.",
+                test: "Explain difference between data preparation, modeling, visualization.",
+                tasks: [
+                    { id: "d15_1", text: "Study Power BI interface, Service, Desktop workflow.", xp: 25 },
+                    { id: "d15_2", text: "Learn how data is imported into Power BI.", xp: 25 },
+                    { id: "d15_3", text: "Explore common visuals and charts.", xp: 25 },
+                    { id: "d15_4", text: "Draft initial Data Analyst CV.", xp: 40 },
+                    { id: "d15_5", text: "Identify 5 target role descriptions.", xp: 25 }
+                ]
+            },
+            {
+                day: 16, week: 3, title: "Power Query in Power BI", time: "5–6 hours", skill: "Power Query",
+                deliverable: "Data preparation workflow doc.",
+                test: "Explain why transformation steps must be repeatable.",
+                tasks: [
+                    { id: "d16_1", text: "Study Power Query Editor applied steps.", xp: 25 },
+                    { id: "d16_2", text: "Remove unnecessary rows and columns.", xp: 20 },
+                    { id: "d16_3", text: "Change and fix data types.", xp: 20 },
+                    { id: "d16_4", text: "Handle missing and null values.", xp: 25 },
+                    { id: "d16_5", text: "Split/merge columns in Power Query.", xp: 25 },
+                    { id: "d16_6", text: "Document full cleaning workflow.", xp: 35 }
+                ]
+            },
+            {
+                day: 17, week: 3, title: "Data Modeling", time: "5–6 hours", skill: "Data Modeling",
+                deliverable: "Star-schema model diagram.",
+                test: "Explain why well-designed models prevent wrong totals.",
+                tasks: [
+                    { id: "d17_1", text: "Understand Fact vs Dimension tables.", xp: 30 },
+                    { id: "d17_2", text: "Study Star Schema architectural design.", xp: 40 },
+                    { id: "d17_3", text: "Understand Primary and Foreign Keys.", xp: 25 },
+                    { id: "d17_4", text: "Learn 1-to-many relationship cardinality.", xp: 30 },
+                    { id: "d17_5", text: "Design sales star schema model.", xp: 45 },
+                    { id: "d17_6", text: "Draw schema diagram for portfolio.", xp: 30 }
+                ]
+            },
+            {
+                day: 18, week: 3, title: "DAX Measures", time: "5–6 hours", skill: "DAX",
+                deliverable: "DAX measure reference sheet.",
+                test: "Explain filter context impact on DAX measures.",
+                tasks: [
+                    { id: "d18_1", text: "Understand Calculated Columns vs DAX Measures.", xp: 30 },
+                    { id: "d18_2", text: "Write SUM, AVERAGE, COUNTROWS measures.", xp: 25 },
+                    { id: "d18_3", text: "Learn CALCULATE and FILTER functions.", xp: 45 },
+                    { id: "d18_4", text: "Learn SUMX iterator function.", xp: 35 },
+                    { id: "d18_5", text: "Create Revenue, Profit, Margin measures.", xp: 35 },
+                    { id: "d18_6", text: "Study basic time intelligence functions.", xp: 40 }
+                ]
+            },
+            {
+                day: 19, week: 3, title: "E-commerce Dashboard Project", time: "5–6 hours", skill: "Power BI",
+                deliverable: "E-commerce performance dashboard.",
+                test: "Explain dashboard to a business owner in 2 minutes.",
+                tasks: [
+                    { id: "d19_1", text: "Prepare e-commerce dataset model.", xp: 35 },
+                    { id: "d19_2", text: "Build KPI cards (Revenue, Profit, Orders, AOV).", xp: 35 },
+                    { id: "d19_3", text: "Build revenue monthly trend chart.", xp: 30 },
+                    { id: "d19_4", text: "Create product and regional analysis charts.", xp: 35 },
+                    { id: "d19_5", text: "Add interactive slicers/filters.", xp: 25 },
+                    { id: "d19_6", text: "Capture dashboard visuals/documentation.", xp: 40 }
+                ]
+            },
+            {
+                day: 20, week: 3, title: "Dashboard Storytelling", time: "5–6 hours", skill: "Data Visualization",
+                deliverable: "Client-ready dashboard summary.",
+                test: "Link every recommendation to a finding.",
+                tasks: [
+                    { id: "d20_1", text: "Review visual hierarchy and remove clutter.", xp: 25 },
+                    { id: "d20_2", text: "Improve chart titles, labels, units.", xp: 20 },
+                    { id: "d20_3", text: "Identify 3 key business findings.", xp: 35 },
+                    { id: "d20_4", text: "Write 3 practical business recommendations.", xp: 40 },
+                    { id: "d20_5", text: "Write 1-page executive summary.", xp: 40 }
+                ]
+            },
+            {
+                day: 21, week: 3, title: "GitHub Portfolio", time: "5–6 hours", skill: "Git & GitHub",
+                deliverable: "Public GitHub portfolio with 2 projects.",
+                test: "A stranger can understand what problem you solved.",
+                tasks: [
+                    { id: "d21_1", text: "Learn Git commits, branches, GitHub READMEs.", xp: 25 },
+                    { id: "d21_2", text: "Create GitHub portfolio repository.", xp: 30 },
+                    { id: "d21_3", text: "Upload SQL project files and README.", xp: 40 },
+                    { id: "d21_4", text: "Upload Python Jupyter notebooks.", xp: 40 },
+                    { id: "d21_5", text: "Write clear contact and bio info.", xp: 25 }
+                ]
+            },
+            // WEEK 4
+            {
+                day: 22, week: 4, title: "n8n Fundamentals", time: "5–7 hours", skill: "Automation (n8n)",
+                deliverable: "First working n8n workflow.",
+                test: "Explain trigger execution and node data flow.",
+                tasks: [
+                    { id: "d22_1", text: "Learn n8n interface, triggers, nodes.", xp: 30 },
+                    { id: "d22_2", text: "Understand workflow data mapping and JSON.", xp: 30 },
+                    { id: "d22_3", text: "Learn Webhooks and HTTP Request nodes.", xp: 35 },
+                    { id: "d22_4", text: "Build manual-trigger workflow.", xp: 45 },
+                    { id: "d22_5", text: "Document workflow execution steps.", xp: 30 }
+                ]
+            },
+            {
+                day: 23, week: 4, title: "Automated Sales Reporting", time: "5–7 hours", skill: "Automation (n8n)",
+                deliverable: "Automated sales reporting workflow.",
+                test: "Demonstrate workflow auto-generating summary email.",
+                tasks: [
+                    { id: "d23_1", text: "Prepare sample sales dataset.", xp: 25 },
+                    { id: "d23_2", text: "Build workflow to fetch sales data.", xp: 35 },
+                    { id: "d23_3", text: "Calculate summary KPIs inside workflow.", xp: 40 },
+                    { id: "d23_4", text: "Format email report body.", xp: 35 },
+                    { id: "d23_5", text: "Send automated report to test email.", xp: 45 }
+                ]
+            },
+            {
+                day: 24, week: 4, title: "Business Alerts System", time: "5–7 hours", skill: "Automation (n8n)",
+                deliverable: "Inventory or revenue alert automation.",
+                test: "Workflow responds correctly to different inputs.",
+                tasks: [
+                    { id: "d24_1", text: "Define alert threshold logic.", xp: 25 },
+                    { id: "d24_2", text: "Build conditional IF node in n8n.", xp: 35 },
+                    { id: "d24_3", text: "Generate notification when alert condition triggers.", xp: 40 },
+                    { id: "d24_4", text: "Add error handling node.", xp: 35 },
+                    { id: "d24_5", text: "Write setup guide.", xp: 30 }
+                ]
+            },
+            {
+                day: 25, week: 4, title: "Business Operations Analytics", time: "5–7 hours", skill: "Business Analytics",
+                deliverable: "Project 3 — Business Operations Analysis.",
+                test: "Explain how analysis improves an operational process.",
+                tasks: [
+                    { id: "d25_1", text: "Select operations dataset.", xp: 25 },
+                    { id: "d25_2", text: "Define 5 operational KPIs.", xp: 30 },
+                    { id: "d25_3", text: "Clean data with Python/SQL.", xp: 40 },
+                    { id: "d25_4", text: "Analyze cost and productivity.", xp: 40 },
+                    { id: "d25_5", text: "Write 3 operational recommendations.", xp: 40 }
+                ]
+            },
+            {
+                day: 26, week: 4, title: "Healthcare Operations Analytics", time: "5–7 hours", skill: "Healthcare Analytics",
+                deliverable: "Healthcare operations case study.",
+                test: "Present findings without exposing personal data.",
+                tasks: [
+                    { id: "d26_1", text: "Source non-identifying healthcare dataset.", xp: 25 },
+                    { id: "d26_2", text: "Analyze wait times, no-shows, appointments.", xp: 40 },
+                    { id: "d26_3", text: "Calculate operational utilization metrics.", xp: 35 },
+                    { id: "d26_4", text: "Build dashboard summary.", xp: 45 },
+                    { id: "d26_5", text: "Write 3 healthcare process recommendations.", xp: 40 }
+                ]
+            },
+            {
+                day: 27, week: 4, title: "Capstone System Project", time: "5–7 hours", skill: "Automation (n8n)",
+                deliverable: "End-to-end analytics and automation capstone.",
+                test: "Explain full path from raw data to alert.",
+                tasks: [
+                    { id: "d27_1", text: "Design ETL + BI + Automation architecture.", xp: 35 },
+                    { id: "d27_2", text: "Clean dataset using Python script.", xp: 45 },
+                    { id: "d27_3", text: "Query data in SQL layer.", xp: 40 },
+                    { id: "d27_4", text: "Connect n8n automated reporting.", xp: 50 },
+                    { id: "d27_5", text: "Publish complete Capstone README.", xp: 50 }
+                ]
+            },
+            {
+                day: 28, week: 4, title: "CV + Portfolio Optimization", time: "5–7 hours", skill: "Portfolio",
+                deliverable: "CV + portfolio + professional introduction.",
+                test: "Someone understands skills & evidence in 2 minutes.",
+                tasks: [
+                    { id: "d28_1", text: "Write 1-page targeted Data Analyst CV.", xp: 45 },
+                    { id: "d28_2", text: "Format 3 project case studies (Problem-Action-Result).", xp: 45 },
+                    { id: "d28_3", text: "Organize GitHub profile.", xp: 30 },
+                    { id: "d28_4", text: "Prepare 1-minute intro message.", xp: 30 }
+                ]
+            },
+            {
+                day: 29, week: 4, title: "Service Offers + Client Research", time: "5–7 hours", skill: "Client Acquisition",
+                deliverable: "Service menu + outreach tracker.",
+                test: "Explain deliverables, scope, and price clearly.",
+                tasks: [
+                    { id: "d29_1", text: "Define 3 service offers ($75–$500 range).", xp: 40 },
+                    { id: "d29_2", text: "Write proposal template.", xp: 35 },
+                    { id: "d29_3", text: "Find 20 target e-commerce/SMB prospects.", xp: 40 },
+                    { id: "d29_4", text: "Send first 5 outreach messages.", xp: 50 }
+                ]
+            },
+            {
+                day: 30, week: 4, title: "Client Acquisition Sprint", time: "5–7 hours", skill: "Client Acquisition",
+                deliverable: "Active client pipeline + 60-day plan.",
+                test: "Repeatable outreach and response system active.",
+                tasks: [
+                    { id: "d30_1", text: "Send 10–15 personalized outreach messages.", xp: 60 },
+                    { id: "d30_2", text: "Apply to remote job opportunities.", xp: 40 },
+                    { id: "d30_3", text: "Log prospect responses in CRM.", xp: 30 },
+                    { id: "d30_4", text: "Draft 60-day continuation plan.", xp: 45 }
                 ]
             }
         ];
 
-        /* Dynamic Render & Core Functions */
+        /* PROJECTS TRACKER BLUEPRINT */
+        const initialProjects = [
+            { id: 1, title: "E-Commerce SQL Analysis", tool: "SQL / PostgreSQL", status: "In Progress", desc: "Analyzed monthly revenue, repeat customers, and product margins." },
+            { id: 2, title: "Python Automated Excel Cleaner", tool: "Python / pandas / openpyxl", status: "Planned", desc: "Script that cleans messy CSVs and auto-formats Excel metrics." },
+            { id: 3, title: "E-Commerce Power BI Executive Dashboard", tool: "Power BI / DAX", status: "Planned", desc: "Interactive BI dashboard with time intelligence DAX measures." },
+            { id: 4, title: "Automated Sales Alert System", tool: "n8n / Webhooks", status: "Planned", desc: "Automated workflow sending alerts when inventory or revenue drops." },
+            { id: 5, title: "Business Operations Analytics", tool: "SQL / Python / BI", status: "Planned", desc: "Operations case study analyzing productivity and cost bottlenecks." },
+            { id: 6, title: "Healthcare Operations Dashboard", tool: "Power BI / Statistics", status: "Planned", desc: "Non-identifying analytics on wait times and clinic utilization." },
+            { id: 7, title: "End-to-End Analytics Capstone", tool: "Full Stack (Python+SQL+BI+n8n)", status: "Planned", desc: "Complete system from raw ingestion to dashboard and automated alert." }
+        ];
+
+        /* SKILLS BLUEPRINT */
+        const skillCategories = [
+            { name: "Excel", icon: "fa-file-excel" },
+            { name: "SQL", icon: "fa-database" },
+            { name: "Python", icon: "fa-brands fa-python" },
+            { name: "Power Query", icon: "fa-filter" },
+            { name: "Power BI", icon: "fa-chart-column" },
+            { name: "DAX", icon: "fa-calculator" },
+            { name: "Data Modeling", icon: "fa-sitemap" },
+            { name: "Data Visualization", icon: "fa-chart-pie" },
+            { name: "Statistics", icon: "fa-square-root-variable" },
+            { name: "APIs", icon: "fa-network-wired" },
+            { name: "Automation (n8n)", icon: "fa-gears" },
+            { name: "Git & GitHub", icon: "fa-brands fa-github" },
+            { name: "Business Analytics", icon: "fa-briefcase" },
+            { name: "Healthcare Analytics", icon: "fa-hospital" },
+            { name: "Portfolio", icon: "fa-folder" },
+            { name: "Client Acquisition", icon: "fa-handshake" }
+        ];
+
         function initApp() {
             loadLocalStorage();
             renderIdentity();
@@ -1063,16 +1297,16 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         }
 
         function loadLocalStorage() {
-            const saved = localStorage.getItem("analytics_sprint_state");
+            const saved = localStorage.getItem("analytics_sprint_state_v2");
             if (saved) {
                 try {
                     state = Object.assign(state, JSON.parse(saved));
-                } catch(e) { console.error("Could not parse saved storage", e); }
+                } catch(e) { console.error("Error loading storage", e); }
             }
         }
 
         function saveLocalStorage() {
-            localStorage.setItem("analytics_sprint_state", JSON.stringify(state));
+            localStorage.setItem("analytics_sprint_state_v2", JSON.stringify(state));
             renderStats();
         }
 
@@ -1092,7 +1326,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             document.getElementById('current-page-title').innerText = titleMap[tabId] || "Dashboard";
         }
 
-        /* Identity & Leveling System */
         function updateIdentity() {
             state.identity.name = document.getElementById("id-input-name").value;
             state.identity.age = document.getElementById("id-input-age").value;
@@ -1146,15 +1379,14 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             document.getElementById("overall-progress-bar").style.width = completionPct + "%";
             document.getElementById("id-level-badge").innerText = calculateLevel(totalXPEarned);
 
-            // Capabilities update
             const capContainer = document.getElementById("capabilities-list");
             capContainer.innerHTML = "";
             let caps = [];
-            if (totalXPEarned >= 200) caps.push("✓ Excel Sales & Business Dataset Analysis");
-            if (totalXPEarned >= 500) caps.push("✓ Relational Database Querying & SQL Joins");
-            if (totalXPEarned >= 900) caps.push("✓ Python Data Cleaning with pandas & Data Wrangling");
-            if (totalXPEarned >= 1300) caps.push("✓ Interactive Power BI Dashboarding & Data Modeling");
-            if (totalXPEarned >= 1800) caps.push("✓ End-to-End n8n Automated Sales Alerting Systems");
+            if (totalXPEarned >= 200) caps.push("✓ Excel Sales Data Analysis & Formulas");
+            if (totalXPEarned >= 500) caps.push("✓ SQL Relational Queries & Joins");
+            if (totalXPEarned >= 900) caps.push("✓ Python Data Cleaning & Wrangling");
+            if (totalXPEarned >= 1300) caps.push("✓ Power BI Dashboarding & DAX Modeling");
+            if (totalXPEarned >= 1800) caps.push("✓ n8n Workflow Automation & Reporting Alerts");
 
             if (caps.length === 0) {
                 capContainer.innerHTML = `<div style="color: var(--text-dim); font-size: 13px;">Complete checklist tasks to unlock client-ready capabilities.</div>`;
@@ -1169,7 +1401,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             }
         }
 
-        /* 30-Day Plan Accordion Renderer */
         function renderPlan() {
             const container = document.getElementById("days-container");
             container.innerHTML = "";
@@ -1179,7 +1410,7 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                 dayEl.className = "day-accordion";
                 
                 let dayCompletedTasks = 0;
-                day.tasks?.forEach(t => { if (state.tasksCompleted[t.id]) dayCompletedTasks++; });
+                day.tasks.forEach(t => { if (state.tasksCompleted[t.id]) dayCompletedTasks++; });
 
                 dayEl.innerHTML = `
                     <div class="day-accordion-header" onclick="this.parentElement.classList.toggle('active')">
@@ -1193,7 +1424,8 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                         </div>
                     </div>
                     <div class="day-accordion-body">
-                        <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;"><strong>Deliverable:</strong> ${dayObj.deliverable}</p>
+                        <p style="font-size:13px; color:var(--text-muted); margin-bottom:8px;"><strong>Deliverable:</strong> ${dayObj.deliverable}</p>
+                        <p style="font-size:12px; color:var(--neon-cyan); margin-bottom:14px;"><strong>Completion Test:</strong> ${dayObj.test}</p>
                         <div class="task-list">
                             ${dayObj.tasks.map(t => `
                                 <div class="task-item ${state.tasksCompleted[t.id] ? 'completed' : ''}" onclick="toggleTask('${t.id}')">
@@ -1205,11 +1437,10 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                                 </div>
                             `).join('')}
                         </div>
-                        <!-- Daily To-Do Section -->
-                        <div style="margin-top:20px; border-top:1px solid var(--border-subtle); padding-top:16px;">
-                            <h4 style="font-size:13px; font-weight:600; color:var(--text-muted); margin-bottom:8px;">Daily Quick Action Items</h4>
-                            <div style="display:flex; gap:8px; margin-bottom:10px;">
-                                <input type="text" id="todo-input-${dayObj.day}" placeholder="Add personal daily task...">
+                        <div style="margin-top:16px; border-top:1px solid var(--border-subtle); padding-top:12px;">
+                            <h4 style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:8px;">Daily Quick Actions</h4>
+                            <div style="display:flex; gap:8px; margin-bottom:8px;">
+                                <input type="text" id="todo-input-${dayObj.day}" placeholder="Add quick action item...">
                                 <button class="btn btn-primary" onclick="addDailyToDo(${dayObj.day})">Add</button>
                             </div>
                             <div id="todo-list-${dayObj.day}"></div>
@@ -1232,7 +1463,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderSkills();
         }
 
-        /* Daily To-Dos (CRUD) */
         function addDailyToDo(day) {
             const input = document.getElementById(`todo-input-${day}`);
             if (!input.value.trim()) return;
@@ -1252,12 +1482,12 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                 const el = document.createElement("div");
                 el.style.display = "flex";
                 el.style.alignItems = "center";
-                el.style.justifySpaceBetween = "space-between";
+                el.style.justifyContent = "space-between";
                 el.style.fontSize = "12px";
                 el.style.marginBottom = "4px";
                 el.innerHTML = `
                     <span style="${item.done ? 'text-decoration:line-through; opacity:0.5;' : ''}" onclick="toggleDailyToDo(${day}, ${index})">${item.text}</span>
-                    <i class="fa-solid fa-trash" style="color:var(--neon-pink); cursor:pointer; margin-left:10px;" onclick="deleteDailyToDo(${day}, ${index})"></i>
+                    <i class="fa-solid fa-trash" style="color:var(--neon-pink); cursor:pointer;" onclick="deleteDailyToDo(${day}, ${index})"></i>
                 `;
                 container.appendChild(el);
             });
@@ -1275,47 +1505,50 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderDailyToDos(day);
         }
 
-        /* Skills Tracker Renderer */
         function renderSkills() {
             const grid = document.getElementById("skills-grid");
             grid.innerHTML = "";
-            const skillList = [
-                { name: "Excel", icon: "fa-file-excel" },
-                { name: "SQL", icon: "fa-database" },
-                { name: "Python", icon: "fa-brands fa-python" },
-                { name: "Power BI", icon: "fa-chart-column" },
-                { name: "Automation (n8n)", icon: "fa-gears" },
-                { name: "Git & GitHub", icon: "fa-brands fa-github" }
-            ];
 
-            skillList.forEach(s => {
+            skillCategories.forEach(s => {
+                let totalSkillXP = 0;
+                let earnedSkillXP = 0;
+
+                sprintPlan.forEach(day => {
+                    if (day.skill === s.name) {
+                        day.tasks.forEach(t => {
+                            totalSkillXP += t.xp;
+                            if (state.tasksCompleted[t.id]) earnedSkillXP += t.xp;
+                        });
+                    }
+                });
+
+                const pct = totalSkillXP > 0 ? Math.round((earnedSkillXP / totalSkillXP) * 100) : 0;
+                const isComplete = pct === 100 && totalSkillXP > 0;
+
                 const el = document.createElement("div");
                 el.className = "glass-card";
                 el.innerHTML = `
                     <div class="card-header">
                         <div class="card-title"><i class="${s.icon}"></i> ${s.name}</div>
+                        ${isComplete ? '<span style="color:var(--accent-green); font-weight:700; font-size:12px;">✓ MASTERED</span>' : ''}
                     </div>
                     <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: ${Math.min(100, (state.stats.totalXP / 3000) * 100)}%;"></div>
+                        <div class="progress-bar-fill" style="width: ${pct}%;"></div>
                     </div>
-                    <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">Status: Active Learning</div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-top:8px;">
+                        <span>Progress: ${pct}%</span>
+                        <span>${earnedSkillXP} / ${totalSkillXP} XP</span>
+                    </div>
                 `;
                 grid.appendChild(el);
             });
         }
 
-        /* Projects Tracker Renderer */
         function renderProjects() {
             const grid = document.getElementById("projects-grid");
             grid.innerHTML = "";
-            const projects = [
-                { title: "E-Commerce SQL Analysis", tool: "SQL", status: "In Progress" },
-                { title: "Python Automated Excel Cleaner", tool: "Python / pandas", status: "Planned" },
-                { title: "E-Commerce Power BI Executive Dashboard", tool: "Power BI / DAX", status: "Planned" },
-                { title: "Automated Sales Alert System", tool: "n8n / APIs", status: "Planned" }
-            ];
 
-            projects.forEach(p => {
+            initialProjects.forEach(p => {
                 const card = document.createElement("div");
                 card.className = "glass-card";
                 card.innerHTML = `
@@ -1323,13 +1556,13 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                         <div class="card-title">${p.title}</div>
                         <span class="level-badge">${p.status}</span>
                     </div>
-                    <div style="font-size:13px; color:var(--text-muted);">Built with: ${p.tool}</div>
+                    <p style="font-size:13px; color:var(--text-muted); margin-bottom:10px;">${p.desc}</p>
+                    <div style="font-size:12px; color:var(--neon-cyan); font-family:'JetBrains Mono';">Stack: ${p.tool}</div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        /* Resources Vault (Full CRUD) */
         function renderResources() {
             const grid = document.getElementById("resources-grid");
             grid.innerHTML = "";
@@ -1341,8 +1574,8 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                         <div class="card-title"><i class="fa-solid fa-link"></i> ${r.title}</div>
                         <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(0,210,255,0.1); color:var(--neon-blue);">${r.category}</span>
                     </div>
-                    <a href="${r.url}" target="_blank" style="font-size:12px; color:var(--neon-cyan); text-decoration:none; display:block; margin-bottom:12px;">Visit Resource <i class="fa-solid fa-external-link"></i></a>
-                    <div style="display:flex; justify-content:flex-end; gap:8px;">
+                    <a href="${r.url}" target="_blank" style="font-size:12px; color:var(--neon-cyan); text-decoration:none; display:block; margin-bottom:12px;">Open Resource <i class="fa-solid fa-external-link"></i></a>
+                    <div style="display:flex; justify-content:flex-end;">
                         <button class="btn btn-danger" onclick="deleteResource(${r.id})"><i class="fa-solid fa-trash"></i> Delete</button>
                     </div>
                 `;
@@ -1351,9 +1584,9 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         }
 
         function openAddResourceModal() {
-            const title = prompt("Enter Resource Title:");
-            const url = prompt("Enter Resource URL:");
-            const category = prompt("Enter Category (e.g. Excel, SQL, Python):") || "General";
+            const title = prompt("Resource Title:");
+            const url = prompt("Resource Link / URL:");
+            const category = prompt("Category (Excel, SQL, Python, Power BI, Automation):") || "General";
             if (title && url) {
                 state.resources.push({ id: Date.now(), title, url, category });
                 saveLocalStorage();
@@ -1367,15 +1600,13 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderResources();
         }
 
-        /* Notes Section (Full CRUD) */
         function renderNotes() {
             const grid = document.getElementById("notes-grid");
             grid.innerHTML = "";
             const search = document.getElementById("note-search-input")?.value.toLowerCase() || "";
-            
-            const filteredNotes = state.notes.filter(n => n.title.toLowerCase().includes(search) || n.body.toLowerCase().includes(search));
+            const filtered = state.notes.filter(n => n.title.toLowerCase().includes(search) || n.body.toLowerCase().includes(search));
 
-            filteredNotes.forEach(n => {
+            filtered.forEach(n => {
                 const card = document.createElement("div");
                 card.className = "glass-card";
                 card.innerHTML = `
@@ -1422,7 +1653,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderNotes();
         }
 
-        /* Client CRM Section (Full CRUD) */
         function renderCRM() {
             const tbody = document.getElementById("client-table-body");
             tbody.innerHTML = "";
@@ -1458,7 +1688,7 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         function openAddClientModal() {
             const company = prompt("Company Name:");
             const industry = prompt("Industry:") || "E-Commerce";
-            const service = prompt("Service Offered:") || "Dashboard Creation";
+            const service = prompt("Service Offered:") || "Excel/BI Dashboard";
             const value = prompt("Estimated Value ($):") || "150";
             if (company) {
                 state.clients.push({ id: Date.now(), company, industry, service, value, status: "Prospect" });
@@ -1470,7 +1700,7 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         function editClient(id) {
             const client = state.clients.find(c => c.id === id);
             if (!client) return;
-            const status = prompt("Update Status (Prospect, Contacted, Proposal, Won, Lost):", client.status);
+            const status = prompt("Status (Prospect, Contacted, Proposal, Won, Lost):", client.status);
             if (status) {
                 client.status = status;
                 saveLocalStorage();
@@ -1484,7 +1714,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderCRM();
         }
 
-        /* Job Applications (Full CRUD) */
         function renderJobs() {
             const tbody = document.getElementById("jobs-table-body");
             tbody.innerHTML = "";
@@ -1519,7 +1748,7 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
         function openAddJobModal() {
             const company = prompt("Company Name:");
             const role = prompt("Role Title:") || "Data Analyst";
-            const type = prompt("Remote or On-site:") || "Remote";
+            const type = prompt("Remote / On-site:") || "Remote";
             if (company) {
                 state.jobs.push({ id: Date.now(), company, role, type, status: "Applied", date: new Date().toLocaleDateString() });
                 saveLocalStorage();
@@ -1533,7 +1762,6 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             renderJobs();
         }
 
-        /* Quotes Engine */
         function nextQuote() {
             currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
             document.getElementById("quote-text").innerText = `"${quotes[currentQuoteIndex]}"`;
@@ -1543,13 +1771,10 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             document.getElementById("quote-text").innerText = `"${quotes[currentQuoteIndex]}"`;
         }
 
-        /* Focus Mode Timer */
         let timerInterval = null;
         let timerSeconds = 1500;
 
-        function openFocusMode() {
-            document.getElementById("focus-modal").classList.add("active");
-        }
+        function openFocusMode() { document.getElementById("focus-modal").classList.add("active"); }
         function closeFocusMode() {
             document.getElementById("focus-modal").classList.remove("active");
             clearInterval(timerInterval);
@@ -1584,13 +1809,12 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
             }
         }
 
-        /* Export/Import/Reset */
         function exportData() {
             const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "analytics_sprint_backup.json";
+            a.download = "analytics_sprint_data.json";
             a.click();
         }
 
@@ -1604,14 +1828,14 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
                     saveLocalStorage();
                     initApp();
                     alert("Data successfully imported!");
-                } catch(err) { alert("Invalid file format."); }
+                } catch(err) { alert("Invalid backup file."); }
             };
             reader.readAsText(file);
         }
 
         function resetAllData() {
-            if (confirm("Are you sure you want to reset all data? Every stat will return to 0.")) {
-                localStorage.removeItem("analytics_sprint_state");
+            if (confirm("Reset all data to 0? This cannot be undone.")) {
+                localStorage.removeItem("analytics_sprint_state_v2");
                 location.reload();
             }
         }
@@ -1623,25 +1847,24 @@ Click "Generate Sprint Report" to compile your full 30-day performance and caree
 ==================================================
 Candidate: ${state.identity.name}
 Total XP Earned: ${state.stats.totalXP}
-Current Stage: ${calculateLevel(state.stats.totalXP)}
+Current Rank: ${calculateLevel(state.stats.totalXP)}
 
-CORE METRICS & DELIVERABLES:
-- Portfolio Projects Completed: ${state.jobs.length}
-- Client Prospects Logged: ${state.clients.length}
-- Remote Job Applications Sent: ${state.jobs.length}
+CORE PERFORMANCE METRICS:
+- Portfolio Projects: ${initialProjects.length} Defined
+- Client Prospects Pipeline: ${state.clients.length} Logged
+- Job Applications Sent: ${state.jobs.length} Logged
 
-TECHNICAL STACK SUMMARY:
-- Excel & Power Query Data Wrangling
-- Relational Databases & SQL Analysis
-- Python Data Analysis (pandas, NumPy)
-- Business Intelligence (Power BI, DAX)
-- Workflow Automation (n8n, REST APIs)
+COMPLETED SKILL STACK:
+- Excel & Data Wrangling
+- Relational Databases & SQL
+- Python Data Analysis & pandas
+- Power BI, DAX & Data Modeling
+- n8n Workflow Automation
 ==================================================
             `;
             document.getElementById("career-report-output").innerText = output;
         }
 
-        /* Boot Application */
         window.onload = initApp;
     </script>
 </body>
